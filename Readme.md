@@ -78,12 +78,12 @@ Este proyecto es un sistema de gestión para una chocolatería que incluye módu
 
 ## Tecnologías y Herramientas Sugeridas
 
-- **Base de Datos:** MySQL o PostgreSQL para almacenar datos de productos, pedidos y estadísticas.
+- **Base de Datos:** SQLite para almacenar datos de productos, pedidos y estadísticas.
 - **Backend:** Django (Python) para manejar la lógica del negocio y servir como API para el frontend.
 - **Frontend:** HTML, CSS, JS en el mismo Django.
 - **Visión por Computadora:** OpenCV y TensorFlow para el reconocimiento de productos en las imágenes.
 - **Generación de QR:** Librerías como qrcode en Python para generar códigos QR.
-- **Almacenamiento de Imágenes:** Amazon S3 para almacenamiento en la nube, o un sistema local si el volumen de imágenes es manejable.
+- **Almacenamiento de Imágenes:** 
 
 ## Flujo de Trabajo
 
