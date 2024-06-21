@@ -23,16 +23,16 @@
 ### 2. Crear y Activar un Entorno Virtual
 
 - Crear y Activar un Entorno Virtual:
-    <code>python -m venv venv</code>
-    <code>venv\Scripts\activate</code>
+-- <code>python -m venv venv</code>
+-- <code>venv\Scripts\activate</code>
 
 ### 3. Instalar las Dependencias
-    <code>pip install -r requirements.txt</code>
+-- <code> pip install -r requirements.txt</code>
 
--Probar el Proyecto Django
-    Asegúrate de estar en el directorio del proyecto y de que el entorno virtual esté activo.
-    <code>python manage.py migrate</code>
-    <code>python manage.py runserver</code>
+### 4. Probar el Proyecto Django
+- Asegúrate de estar en el directorio del proyecto y de que el entorno virtual esté activo.
+-- <code>python manage.py migrate</code>
+-- <code>python manage.py runserver</code>
 
 
 
