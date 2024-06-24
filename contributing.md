@@ -61,11 +61,26 @@ Para asegurar consistencia y calidad en el código, seguimos las convenciones de
     ```python
     MAX_VALUE = 100
 
+## Contribuir al Proyecto
 
+1. Clonar el Repositorio:
+    ```bash
+    git clone https://github.com/Alvaro0219/Sistema-chocolateria.git
+    cd Sistema-chocolateria
 
+2. Crear una Rama:
+    ```bash
+    git checkout -b feature/nueva-funcionalidad
 
+3. Hacer Commit de tus Cambios:
+    ```bash
+    git add .
+    git commit -m "Descripción de los cambios"
 
+4. Enviar tus Cambios:
+    ```bash
+    git push origin feature/nueva-funcionalidad
 
-
-
-
+5. Crear un Pull Request:
+- Ir a la página del repositorio en GitHub.
+- Crear un nuevo Pull Request desde tu rama.
