@@ -38,6 +38,29 @@
 
 <code>python manage.py runserver</code>
 
+# Normas de Contribución
+
+## Estándar de Código
+
+Para asegurar consistencia y calidad en el código, seguimos las convenciones de PEP 8 para Python. A continuación, se detallan las principales reglas y prácticas recomendadas.
+
+### Nomenclatura
+
+- **Variables y funciones:** Usar snake_case
+  ```python
+  variable_name = 42
+  def function_name():
+    pass
+
+- **Clases:** Usar CamelCase
+    ```python
+    class MyClass:
+        pass
+
+- **Constantes:**  Usar UPPER_SNAKE_CASE
+    ```python
+    MAX_VALUE = 100
+
 
 
 
