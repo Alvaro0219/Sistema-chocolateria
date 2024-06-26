@@ -20,7 +20,7 @@
 
 - Navega al directorio del proyecto:
     ```bash
-    cd tu_repositorio
+    cd Sistema-chocolateria
 
 ### 2. Crear y Activar un Entorno Virtual
 
