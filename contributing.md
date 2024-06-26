@@ -15,28 +15,30 @@
 - Navega al directorio donde quieres clonar el repositorio.
 
 - Clona el repositorio usando el siguiente comando:
-    <code>git clone https://github.com/Alvaro0219/Sistema-chocolateria.git</code>
+    ```bash
+    git clone https://github.com/Alvaro0219/Sistema-chocolateria.git
 
 - Navega al directorio del proyecto:
-    <code>cd tu_repositorio</code>
+    ```bash
+    cd tu_repositorio
 
 ### 2. Crear y Activar un Entorno Virtual
 
 - Crear y Activar un Entorno Virtual:
-
-<code>python -m venv venv</code>
-
-<code>venv\Scripts\activate</code>
+    ```bash
+    python -m venv venv
+    venv/Scripts/activate
 
 ### 3. Instalar las Dependencias
-<code> pip install -r requirements.txt</code>
+- Instalar dependencias:
+    ```bash
+    pip install -r requirements.txt
 
 ### 4. Probar el Proyecto Django
 - Asegúrate de estar en el directorio del proyecto y de que el entorno virtual esté activo.
-
-<code>python manage.py migrate</code>
-
-<code>python manage.py runserver</code>
+    ```bash
+    python manage.py migrate
+    python manage.py runserver
 
 # Normas de Contribución
 
