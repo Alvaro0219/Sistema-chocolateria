@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Chocolatería{% endblock %}</title>
+    <!-- Aquí puedes incluir archivos CSS -->
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Chocolatería</h1>
+        <!-- Aquí puedes incluir una barra de navegación -->
+    </header>
+    <main>
+        {% block content %}
+        <!-- El contenido específico de cada página irá aquí -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Chocolatería. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
