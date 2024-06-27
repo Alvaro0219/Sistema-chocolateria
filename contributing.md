@@ -86,3 +86,25 @@ Para asegurar consistencia y calidad en el código, seguimos las convenciones de
 5. Crear un Pull Request:
 - Ir a la página del repositorio en GitHub.
 - Crear un nuevo Pull Request desde tu rama.
+
+# Codigo
+
+## Enrutamiento entre apps
+1. Definir Vistas: Crear funciones o clases en views.py que manejen solicitudes.
+    ```bash
+    def my_view(request):
+        return render(request, 'myapp/my_template.html')
+2. Configurar URLs en Aplicaciones: Definir patrones de URL en urls.py de cada aplicación.
+    ```bash
+    urlpatterns = [
+    path('', my_view, name='my_view'),
+    ]
+3. Incluir URLs en el Proyecto Principal: Usar include() en el urls.py del proyecto principal para incluir las rutas de las aplicaciones.
+    ```bash
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('myapp/', include('myapp.urls')),
+    ]
+4. Usar URLs Dinámicas en Templates: Utilizar {% url 'name' %} en los templates para crear enlaces dinámicos.
+    ```bash
+    <a href="{% url 'my_view' %}">Go to My View</a>
