@@ -3,21 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Chocolatería{% endblock %}</title>
-    <!-- Aquí puedes incluir archivos CSS -->
+    <title>{% block title %}Delicias ChocolaterIA{% endblock %}</title>
+    {% load static %}
+    
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a la Chocolatería</h1>
-        <!-- Aquí puedes incluir una barra de navegación -->
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="{% url 'home' %}" class="navbar-brand">ChocolaterIA</a>
+            <nav class="navigation">
+                <a href="#">Productos</a>
+                <a href="#">Pedidos</a>
+                <a href="#">Estadísticas</a>
+                <a href="#">Ajustes</a>
+            </nav>
+        </div>
     </header>
-    <main>
+
+    <!-- Content Block -->
+    <main class="content">
         {% block content %}
-        <!-- El contenido específico de cada página irá aquí -->
+        <!-- Page-specific content goes here -->
         {% endblock %}
     </main>
-    <footer>
-        <p>&copy; 2024 Chocolatería. Todos los derechos reservados.</p>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Delicias ChocolaterIA. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

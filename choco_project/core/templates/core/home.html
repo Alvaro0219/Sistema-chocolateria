@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Home - Delicias ChocolaterIA{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <div class="card">
+        <img src="{% static 'images/logo.png' %}" alt="Logo de ChocolaterIA" class="card__logo">
+        <div class="card__content">
+            <h2 class="card__title">ChocolaterIA</h2>
+            <p class="card__description">Deliciosos chocolates artesanales.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
