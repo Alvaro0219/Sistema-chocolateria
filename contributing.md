@@ -89,6 +89,14 @@ Para asegurar consistencia y calidad en el código, seguimos las convenciones de
 
 # Codigo
 
+## Flujo django
+1. Crear app para el modulo
+2. Instalar app en settings.py
+2. Crear vistas en app/views.py
+3. Crear archivo urls.py en app
+4. Crear urls (path)
+5. Agregar path de url al 'urls.py' del proyecto
+
 ## Enrutamiento entre apps
 1. Definir Vistas: Crear funciones o clases en views.py que manejen solicitudes.
     ```bash
