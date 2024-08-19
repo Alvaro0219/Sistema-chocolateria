@@ -1,108 +1,193 @@
 /* productos.html */
 
 /* Contenedor general */
-.productos-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Epilogue', 'Noto Sans', sans-serif;
-    background-color: #201314;
-    color: #fff;
-  }
-  
-  /* Encabezado */
-  .productos-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .productos-title {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  
-  .productos-add-button {
-    background-color: #42292a;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .productos-add-button:hover {
-    background-color: #5f3a3c;
-  }
-  
-  /* Barra de búsqueda */
-  .productos-search-bar {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .productos-search-input {
-    width: 100%;
-    padding: 10px 40px 10px 20px;
-    border: 1px solid #5f3a3c;
-    border-radius: 5px;
-    background-color: #42292a;
-    color: white;
-    font-size: 1rem;
-  }
-  
-  .productos-search-icon {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    fill: #c19a9c;
-  }
-  
-  /* Tabla */
-  .productos-table-container {
-    overflow-x: auto;
-  }
-  
-  .productos-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #2f1d1e;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .productos-table thead {
-    background-color: #3f2b2c;
-  }
-  
-  .productos-table th, .productos-table td {
-    padding: 15px;
-    text-align: left;
-    font-size: 1rem;
-  }
-  
-  .productos-table th {
-    color: #c19a9c;
-  }
-  
-  .productos-table td {
-    color: white;
-    border-bottom: 1px solid #5f3a3c;
-  }
-  
-  .productos-table td img.producto-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 15px;
-    vertical-align: middle;
-  }
-  
-  .productos-table tr:hover {
-    background-color: #3f2b2c;
-    cursor: pointer;
-  }  
+.prod-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Epilogue', 'Noto Sans', sans-serif;
+  background-color: #201314;
+  color: #fff;
+}
+
+/* Encabezado */
+.prod-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.prod-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.prod-add-btn {
+  background-color: #42292a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.prod-add-btn:hover {
+  background-color: #5f3a3c;
+}
+
+/* Barra de búsqueda */
+.prod-search {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prod-search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 20px 10px 40px;
+  border: 1px solid #5f3a3c;
+  border-radius: 5px;
+  background-color: #42292a;
+  color: white;
+  font-size: 1rem;
+}
+
+.prod-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  fill: #c19a9c;
+}
+
+/* Espaciado y alineación para la tabla */
+.prod-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.prod-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2f1d1e;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.prod-table thead {
+  background-color: #3f2b2c;
+}
+
+.prod-table th, .prod-table td {
+  padding: 15px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.prod-table th {
+  color: #c19a9c;
+}
+
+.prod-table td {
+  color: white;
+  border-bottom: 1px solid #5f3a3c;
+}
+
+.prod-table td img.prod-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.prod-row:hover {
+  background-color: #3f2b2c;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* agg_productos.html */
+/* Contenedor general del formulario de agregar producto */
+.agg-productos-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Epilogue', 'Noto Sans', sans-serif;
+  background-color: #201314;
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* Encabezado */
+.agg-productos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.agg-productos-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.agg-productos-back-button {
+  background-color: #42292a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.agg-productos-back-button:hover {
+  background-color: #5f3a3c;
+}
+
+/* Estilos del formulario */
+.agg-productos-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 1rem;
+  color: #c19a9c;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #5f3a3c;
+  border-radius: 5px;
+  background-color: #42292a;
+  color: white;
+  font-size: 1rem;
+}
+
+.agg-productos-submit-button {
+  background-color: #42292a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.agg-productos-submit-button:hover {
+  background-color: #5f3a3c;
+}

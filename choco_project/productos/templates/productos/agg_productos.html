@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Agregar Producto - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'productos/css/productos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="agg-productos-container">
+    <header class="agg-productos-header">
+        <h1 class="agg-productos-title">Agregar Producto</h1>
+        <a href="{% url 'productos:productos' %}" class="agg-productos-back-button">Volver a la lista de productos</a>
+    </header>
+
+    <form method="post" enctype="multipart/form-data" class="agg-productos-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.nombre.label_tag }} 
+            {{ form.nombre }}
+        </div>
+
+        <div class="form-group">
+            {{ form.codigo.label_tag }} 
+            {{ form.codigo }}
+        </div>
+
+        <div class="form-group">
+            {{ form.precio.label_tag }} 
+            {{ form.precio }}
+        </div>
+
+        <div class="form-group">
+            {{ form.descripcion.label_tag }} 
+            {{ form.descripcion }}
+        </div>
+
+        <div class="form-group">
+            <label for="imagenes">Imágenes del Producto</label>
+            <input type="file" name="imagenes" id="imagenes" multiple>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="agg-productos-submit-button">Guardar Producto</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
