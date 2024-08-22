@@ -15,25 +15,37 @@
         <a href="{% url 'productos:productos' %}" class="agg-productos-back-button">Volver a la lista de productos</a>
     </header>
 
+    <!-- Mostrar mensajes de éxito o error -->
+    {% if messages %}
+    <div class="productos-messages">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <form method="post" enctype="multipart/form-data" class="agg-productos-form">
         {% csrf_token %}
+        
         <div class="form-group">
-            {{ form.nombre.label_tag }} 
+            {{ form.nombre.label_tag }}
             {{ form.nombre }}
         </div>
 
         <div class="form-group">
-            {{ form.codigo.label_tag }} 
+            {{ form.codigo.label_tag }}
             {{ form.codigo }}
         </div>
 
         <div class="form-group">
-            {{ form.precio.label_tag }} 
+            {{ form.precio.label_tag }}
             {{ form.precio }}
         </div>
 
         <div class="form-group">
-            {{ form.descripcion.label_tag }} 
+            {{ form.descripcion.label_tag }}
             {{ form.descripcion }}
         </div>
 

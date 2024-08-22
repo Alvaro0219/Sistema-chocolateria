@@ -10,6 +10,17 @@
 
 {% block content %}
 <div class="prod-container">
+
+    {% if messages %}
+        <div class="productos-messages">
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
     <header class="prod-header">
         <h1 class="prod-title">Productos</h1>
         <a href="{% url 'productos:agg_productos' %}" class="prod-add-btn">Agregar producto</a>

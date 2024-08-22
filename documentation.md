@@ -34,7 +34,18 @@ El template base.html es el layout base para la aplicación Django. Define la es
 
 ## Formulario
 ### ProductoForm
-ProductoForm se encarga de la entrada para agregar nuevos productos. Incluye campos para los detalles del producto, pero gestiona las cargas de imágenes por separado en la vista.
+*Gestiona tanto la entrada de datos como la validación necesaria antes de la creación del producto.*
+
+- **Clase**: ProductoForm
+- **Campos**: 
+  - nombre: Campo de texto para el nombre del producto (debe ser único).
+  - codigo: Campo de texto para el código del producto (debe ser único).
+  - precio: Campo numérico para el precio del producto.
+  - descripcion: Campo de texto para la descripción del producto.
+- **Validación personalizada**:
+  - La clase incluye un método clean que valida la presencia de al menos una imagen subida a través de request.FILES.
+  - Si no se suben imágenes, se genera un error que impide la validación del formulario.
+  - Verifica que no existan duplicados de nombre o codigo antes de permitir la creación del producto.
 
 ## Vistas
 ### productos
@@ -50,14 +61,19 @@ ProductoForm se encarga de la entrada para agregar nuevos productos. Incluye cam
 *maneja el formulario para agregar nuevos productos.*
 
 - **Función** :agg_productos
-- **Propósito** : Gestionar la creación de un nuevo producto y guardarlo en la base de datos junto con sus imágenes.
+- **Propósito** : Gestionar la creación de un nuevo producto y sus imágenes, asegurando la validación de los datos antes de guardarlos en la base de datos.
 - **Parámetros** :
     - request:El objeto de solicitud HTTP.
 - **Comportamiento**  :
-    - Si el método de solicitud es POST, la vista procesa los datos del formulario enviado, guarda el producto y carga las imágenes.
-    - Si el formulario es válido, se guarda el producto y sus imágenes y se redirige al usuario al listado de productos.
+    - Si el método de solicitud es POST, la vista procesa los datos del formulario enviados, incluyendo la validación de la existencia de imágenes y la verificación de duplicados de nombre o código.
+    - Si el formulario es válido y no hay errores de duplicados o falta de imágenes:
+      - Se guarda el nuevo producto en la base de datos.
+      - Se guardan las imágenes asociadas al producto.
+      - Se muestra un mensaje de éxito ("Producto agregado exitosamente") y se redirige al usuario al listado de productos.
+    - Si el formulario no es válido o si hay duplicados de nombre o código:
+      - Se muestran mensajes de error específicos, indicando si el nombre o código ya están en uso, si faltan imágenes o si hay otros errores en el formulario.
     - Si el método de solicitud no es POST, la vista muestra un formulario vacío para crear un nuevo producto.
-- **Devuelve**  : Representa la agg_productos.html plantilla con el contexto del formulario.
+- **Devuelve**  : Renderiza la plantilla agg_productos.html con el contexto del formulario y los posibles mensajes de error.
 
 ### detalle_producto
 

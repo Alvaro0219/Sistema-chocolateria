@@ -191,3 +191,26 @@
 .agg-productos-submit-button:hover {
   background-color: #5f3a3c;
 }
+
+/* Estilo para los mensajes */
+.productos-messages {
+  margin-bottom: 20px;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.alert-error {
+  background-color: #dc3545;
+  color: white;
+}
+
