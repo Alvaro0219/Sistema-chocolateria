@@ -26,7 +26,8 @@
 
 - Crear y Activar un Entorno Virtual:
     ```bash
-    python -m venv venv
+    python -m venv 
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
     venv/Scripts/activate
 
 ### 3. Instalar las Dependencias
