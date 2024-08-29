@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ producto.nombre }} - Detalles{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'productos/css/productos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detalle-producto-container">
+    <header class="detalle-producto-header">
+        <h1 class="detalle-producto-title">{{ producto.nombre }}</h1>
+        <a href="{% url 'productos:productos' %}" class="detalle-producto-back-button">Volver a la lista de productos</a>
+    </header>
+
+    <div class="detalle-producto-content">
+        <div class="detalle-producto-image">
+            {% if producto.imagenes.first %}
+            <img src="{{ producto.imagenes.first.imagen.url }}" alt="{{ producto.nombre }}" class="detalle-producto-img">
+            {% else %}
+            <img src="{% static 'productos/images/default.jpg' %}" alt="Imagen no disponible" class="detalle-producto-img">
+            {% endif %}
+        </div>
+        <div class="detalle-producto-info">
+            <p><strong>Código:</strong> {{ producto.codigo }}</p>
+            <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+            <p><strong>Descripción:</strong></p>
+            <p>{{ producto.descripcion }}</p>
+        </div>
+    </div>
+
+    <div class="detalle-producto-actions">
+        <a href="{% url 'productos:editar_producto' producto.pk %}" class="detalle-producto-edit-button">Editar</a>
+        <form action="{% url 'productos:eliminar_producto' producto.pk %}" method="post" class="detalle-producto-delete-form">
+            {% csrf_token %}
+            <button type="submit" class="detalle-producto-delete-button">Eliminar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
