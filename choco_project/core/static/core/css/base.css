@@ -1,56 +1,63 @@
 /* ARCHIVO BASE */
 body, h1, h2, h3, p, ul, li, a {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    color: #fff;
-    background-color: #3b0a0a;
-  }
-  
-  /* Navbar Styling */
-  .navbar {
-    background-color: #5c0a0a; /* Dark red background */
-    padding: 10px 0;
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .navbar-brand {
-    font-size: 1.5rem; 
-    font-weight: bold; 
-    color: #CC8F94; 
-    text-decoration: none;
-  }
-  
-  .navbar-brand:hover {
-    color: #b52c00; 
-  }
-  
-  .navigation {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navigation a {
-    color: #CC8F94;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navigation a:hover {
-    color: #b52c00; 
-  }
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #fff;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #e20019;
+  padding: 12px 24px;
+  border-radius: 2.1875em; /* Bordes redondeados */
+  margin: 40px auto; /* Margen superior e inferior */
+  width: 1100px ; /* Ajuste al contenido */
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 2rem; 
+  font-weight: bold; 
+  color: #ffffff; 
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #b52c00; 
+}
+
+.navigation {
+  display: flex;
+  gap: 60px;
+}
+
+.navigation a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25rem; 
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navigation a:hover { 
+  background-color: #c00015;
+}
   
   /* Responsive Navbar */
   @media (max-width: 768px) {
@@ -79,10 +86,10 @@ body, h1, h2, h3, p, ul, li, a {
   /* Footer Styling */
   .footer {
     background-color: #5c0a0a;
-    padding: 10px 0;
+    padding: 6px 0;
     text-align: center;
     color: #CC8F94;
-    margin-top: 20px;
+    margin-top: 60px;
   }
 
 /* PAGINA PRINCIPAL (HOME) */
@@ -92,16 +99,17 @@ body, h1, h2, h3, p, ul, li, a {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #3b0a0a;
+  min-height: 70vh;
+  width: 100%;
+  background-color:#ffffff;
   padding: 20px;
 }
 
 /* Card styles */
 .card {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   background: #000; /* Black background for contrast */
   border-radius: 10px;
   display: flex;
@@ -113,7 +121,7 @@ body, h1, h2, h3, p, ul, li, a {
   background-origin: border-box;
   background-clip: content-box, border-box;
   box-shadow: 15px 15px 30px rgb(137, 5, 5),
-             -15px -15px 30px rgb(137, 5, 5);
+            -15px -15px 30px rgb(137, 5, 5);
 }
 
 .card::before {
