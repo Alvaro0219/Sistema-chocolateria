@@ -5,6 +5,13 @@ from django.contrib import messages
 
 def productos(request):
     productos = Producto.objects.all()
+
+    # Obtener el término de búsqueda desde la barra de búsqueda
+    query = request.GET.get('q')
+    if query:
+        # Filtrar productos que contengan el término de búsqueda en el nombre o descripción
+        productos = productos.filter(nombre__icontains=query)
+
     return render(request, 'productos/productos.html', {'productos': productos})
 
 def agg_productos(request):
