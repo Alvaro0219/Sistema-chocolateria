@@ -223,90 +223,174 @@
   margin: 0 auto;
   padding: 20px;
   font-family: 'Epilogue', 'Noto Sans', sans-serif;
-  background-color: #201314;
-  color: #fff;
+  background-color: #f5f5f5;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Encabezado */
-.detalle-producto-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Encabezado del Producto */
+.detalle-producto-container h1 {
+  font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-.detalle-producto-title {
-  font-size: 2rem;
+/* Información del Producto */
+.detalle-producto-container p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.detalle-producto-container p strong {
   font-weight: bold;
 }
 
-.detalle-producto-back-button {
-  background-color: #42292a;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.detalle-producto-back-button:hover {
-  background-color: #5f3a3c;
-}
-
-/* Contenido del Producto */
-.detalle-producto-content {
+/* Imágenes del Producto */
+.producto-imagenes {
+  margin: 20px 0;
   display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 10px;
 }
 
-.detalle-producto-image {
-  flex-shrink: 0;
-}
-
-.detalle-producto-img {
-  width: 200px;
-  height: 200px;
+.producto-imagenes img {
+  width: 150px;
+  height: 150px;
   border-radius: 10px;
   object-fit: cover;
-  background-color: #42292a;
-  border: 3px solid #5f3a3c;
+  background-color: #eee;
+  border: 2px solid #ddd;
 }
 
-.detalle-producto-info {
-  flex-grow: 1;
-}
-
-.detalle-producto-info p {
-  margin-bottom: 10px;
-}
-
-/* Acciones (Editar, Eliminar) */
-.detalle-producto-actions {
+/* Acciones (Editar, Eliminar, Volver a la lista) */
+.producto-acciones {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
 .detalle-producto-edit-button,
-.detalle-producto-delete-button {
-  background-color: #42292a;
-  color: white;
+.detalle-producto-delete-button,
+.btn-secondary {
+  background-color: #b52c00;
+  color: #fcf7d1;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .detalle-producto-edit-button:hover,
-.detalle-producto-delete-button:hover {
-  background-color: #5f3a3c;
+.detalle-producto-delete-button:hover,
+.btn-secondary:hover {
+  background-color: #8c0005;
 }
 
 .detalle-producto-delete-form {
-  display: inline-block;
   margin: 0;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* editar_producto.html */
+
+/* Contenedor general */
+.editar-producto-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8; /* Fondo ligeramente más claro */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.editar-producto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px; /* Mayor separación inferior */
+}
+
+.editar-producto-title {
+  font-size: 2rem; /* Texto más grande */
+  color: #4d2e1a; /* Color más oscuro para el título */
+}
+
+.editar-producto-back-button {
+  text-decoration: none;
+  background-color: #b52c00;
+  color: #fcf7d1;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.editar-producto-back-button:hover {
+  background-color: #8c0005;
+}
+
+/* Mensajes */
+.productos-messages {
+  margin-bottom: 20px;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Formulario */
+.editar-producto-form .form-group {
+  margin-bottom: 20px;
+}
+
+.editar-producto-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #4d2e1a;
+}
+
+.editar-producto-form .form-group input[type="text"],
+.editar-producto-form .form-group input[type="number"],
+.editar-producto-form .form-group textarea,
+.editar-producto-form .form-group input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.editar-producto-form .form-group input[type="file"] {
+  padding: 6px;
+}
+
+.editar-producto-submit-button {
+  background-color: #5c0a0a;
+  color: #fcf7d1;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editar-producto-submit-button:hover {
+  background-color: #8c0005;
 }
 

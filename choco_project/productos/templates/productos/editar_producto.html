@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Editar Producto - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'productos/css/productos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="editar-producto-container">
+    <header class="editar-producto-header">
+        <h1 class="editar-producto-title">Editar Producto: {{ producto.nombre }}</h1>
+        <a href="{% url 'productos:detalle_producto' producto.id %}" class="editar-producto-back-button">Volver al detalle del producto</a>
+    </header>
+
+    <!-- Mostrar mensajes de éxito o error -->
+    {% if messages %}
+    <div class="productos-messages">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="editar-producto-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+        </div>
+
+        <div class="form-group">
+            {{ form.codigo.label_tag }}
+            {{ form.codigo }}
+        </div>
+
+        <div class="form-group">
+            {{ form.precio.label_tag }}
+            {{ form.precio }}
+        </div>
+
+        <div class="form-group">
+            {{ form.descripcion.label_tag }}
+            {{ form.descripcion }}
+        </div>
+
+        <div class="form-group">
+            <label for="imagenes">Imágenes del Producto</label>
+            <input type="file" name="imagenes" id="imagenes" multiple>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="editar-producto-submit-button">Guardar Cambios</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

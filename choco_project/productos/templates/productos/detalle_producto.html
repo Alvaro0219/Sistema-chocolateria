@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{{ producto.nombre }} - Detalles{% endblock %}
+{% block title %}Detalle del Producto - Delicias ChocolaterIA{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'productos/css/productos.css' %}">
@@ -10,29 +10,22 @@
 
 {% block content %}
 <div class="detalle-producto-container">
-    <header class="detalle-producto-header">
-        <h1 class="detalle-producto-title">{{ producto.nombre }}</h1>
-        <a href="{% url 'productos:productos' %}" class="detalle-producto-back-button">Volver a la lista de productos</a>
-    </header>
+    <h1>{{ producto.nombre }}</h1>
+    <p><strong>Código:</strong> {{ producto.codigo }}</p>
+    <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+    <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
 
-    <div class="detalle-producto-content">
-        <div class="detalle-producto-image">
-            {% if producto.imagenes.first %}
-            <img src="{{ producto.imagenes.first.imagen.url }}" alt="{{ producto.nombre }}" class="detalle-producto-img">
-            {% else %}
-            <img src="{% static 'productos/images/default.jpg' %}" alt="Imagen no disponible" class="detalle-producto-img">
-            {% endif %}
-        </div>
-        <div class="detalle-producto-info">
-            <p><strong>Código:</strong> {{ producto.codigo }}</p>
-            <p><strong>Precio:</strong> ${{ producto.precio }}</p>
-            <p><strong>Descripción:</strong></p>
-            <p>{{ producto.descripcion }}</p>
-        </div>
+    <!-- Aquí las imágenes del producto -->
+    <div class="producto-imagenes">
+        {% for imagen in producto.imagenes.all %}
+        <img src="{{ imagen.imagen.url }}" alt="{{ producto.nombre }}">
+        {% endfor %}
     </div>
 
-    <div class="detalle-producto-actions">
+    <!-- Botones de acción -->
+    <div class="producto-acciones">
         <a href="{% url 'productos:editar_producto' producto.pk %}" class="detalle-producto-edit-button">Editar</a>
+        <a href="{% url 'productos:productos' %}" class="btn btn-secondary">Volver a la lista</a>
         <form action="{% url 'productos:eliminar_producto' producto.pk %}" method="post" class="detalle-producto-delete-form">
             {% csrf_token %}
             <button type="submit" class="detalle-producto-delete-button">Eliminar</button>
