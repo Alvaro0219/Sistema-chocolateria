@@ -24,12 +24,9 @@
 
     <!-- Botones de acción -->
     <div class="producto-acciones">
-        <a href="{% url 'productos:editar_producto' producto.pk %}" class="detalle-producto-edit-button">Editar</a>
+        <a href="{% url 'productos:editar_producto' pk=producto.id %}" class="detalle-producto-edit-button">Editar</a>
         <a href="{% url 'productos:productos' %}" class="btn btn-secondary">Volver a la lista</a>
-        <form action="{% url 'productos:eliminar_producto' producto.pk %}" method="post" class="detalle-producto-delete-form">
-            {% csrf_token %}
-            <button type="submit" class="detalle-producto-delete-button">Eliminar</button>
-        </form>
+        <a href="{% url 'productos:eliminar_producto' pk=producto.id %}" class="detalle-producto-delete-button">Eliminar</a>
     </div>
 </div>
 {% endblock %}

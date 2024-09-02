@@ -394,3 +394,55 @@
   background-color: #8c0005;
 }
 
+/* eliminar_producto.html */
+
+/* Contenedor general */
+.eliminar-producto-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #201314;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Epilogue', 'Noto Sans', sans-serif;
+  text-align: center;
+}
+
+/* Título */
+.eliminar-producto-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ff4c4c;
+}
+
+/* Texto de advertencia */
+.eliminar-producto-text {
+  margin-bottom: 15px;
+  color: #f8d7da;
+}
+
+/* Botones de acción */
+.eliminar-producto-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.eliminar-producto-delete-button,
+.eliminar-producto-cancel-button {
+  background-color: #42292a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.eliminar-producto-delete-button:hover,
+.eliminar-producto-cancel-button:hover {
+  background-color: #5f3a3c;
+}
+

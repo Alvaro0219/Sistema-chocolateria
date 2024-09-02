@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Eliminar Producto - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'productos/css/productos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="eliminar-producto-container">
+    <h1 class="eliminar-producto-title">¿Estás seguro de que deseas eliminar este producto?</h1>
+    <p class="eliminar-producto-text">Esta acción no se puede deshacer.</p>
+    <p><strong>Producto:</strong> {{ producto.nombre }}</p>
+    <p><strong>Código:</strong> {{ producto.codigo }}</p>
+
+    <div class="eliminar-producto-actions">
+        <form action="{% url 'productos:eliminar_producto' producto.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="eliminar-producto-delete-button">Eliminar</button>
+            <a href="{% url 'productos:detalle_producto' producto.pk %}" class="eliminar-producto-cancel-button">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
