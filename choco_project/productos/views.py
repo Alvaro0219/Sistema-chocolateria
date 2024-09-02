@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto, ProductoImagen
 from .forms import ProductoForm
 from django.contrib import messages
+import os
 
 def productos(request):
     productos = Producto.objects.all()
@@ -81,10 +82,16 @@ def editar_producto(request, pk):
 
 def eliminar_producto(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
-    
     if request.method == 'POST':
+        # Eliminar imágenes asociadas
+        for imagen in producto.imagenes.all():
+            if os.path.isfile(imagen.imagen.path):
+                os.remove(imagen.imagen.path)
+        
+        # Eliminar el producto
         producto.delete()
         messages.success(request, "Producto eliminado exitosamente.")
         return redirect('productos:productos')
     
     return render(request, 'productos/eliminar_producto.html', {'producto': producto})
+
