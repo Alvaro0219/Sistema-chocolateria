@@ -59,12 +59,32 @@
 
 .prod-search-icon {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 10px;
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
   fill: #c19a9c;
+}
+
+.btn-reset-search {
+  padding: 10px;
+  background-color: #42292a;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reset-search:hover {
+  background-color: #7b5254;
+}
+
+.btn-reset-icon {
+  width: 20px;
+  height: 20px;
+  stroke: white;
 }
 
 /* Espaciado y alineación para la tabla */
