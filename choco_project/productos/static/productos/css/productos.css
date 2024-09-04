@@ -253,10 +253,17 @@
 }
 
 /* Encabezado del Producto */
-.detalle-producto-container h1 {
+.detalle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.detalle-header h1 {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 /* Información del Producto */
@@ -305,10 +312,11 @@
 }
 
 .detalle-producto-edit-button:hover,
-.detalle-producto-delete-button:hover{
+.detalle-producto-delete-button:hover {
   background-color: #8c0005;
 }
 
+/* Flecha de 'Volver a la lista' */
 .btn-details {
   padding: 10px;
   background-color: #b52c00;

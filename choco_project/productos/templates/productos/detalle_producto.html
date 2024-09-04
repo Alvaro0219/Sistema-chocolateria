@@ -10,10 +10,20 @@
 
 {% block content %}
 <div class="detalle-producto-container">
-    <h1>{{ producto.nombre }}</h1>
-    <p><strong>Código:</strong> {{ producto.codigo }}</p>
-    <p><strong>Precio:</strong> ${{ producto.precio }}</p>
-    <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+    <div class="detalle-header">
+        <h1>{{ producto.nombre }}</h1>
+        <a href="{% url 'productos:productos' %}" class="btn-details">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="btn-reset-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </a>
+    </div>
+
+    <div>
+        <p><strong>Código:</strong> {{ producto.codigo }}</p>
+        <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+    </div>
 
     <!-- Aquí las imágenes del producto -->
     <div class="producto-imagenes">
@@ -25,12 +35,8 @@
     <!-- Botones de acción -->
     <div class="producto-acciones">
         <a href="{% url 'productos:editar_producto' pk=producto.id %}" class="detalle-producto-edit-button">Editar</a>
-        <a href="{% url 'productos:productos' %}" class="btn-details">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="btn-reset-icon">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-        </a>
         <a href="{% url 'productos:eliminar_producto' pk=producto.id %}" class="detalle-producto-delete-button">Eliminar</a>
     </div>
 </div>
+
 {% endblock %}
