@@ -293,10 +293,9 @@
 }
 
 .detalle-producto-edit-button,
-.detalle-producto-delete-button,
-.btn-secondary {
+.detalle-producto-delete-button {
   background-color: #b52c00;
-  color: #fcf7d1;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -306,14 +305,24 @@
 }
 
 .detalle-producto-edit-button:hover,
-.detalle-producto-delete-button:hover,
-.btn-secondary:hover {
+.detalle-producto-delete-button:hover{
   background-color: #8c0005;
 }
 
-.detalle-producto-delete-form {
-  margin: 0;
+.btn-details {
+  padding: 10px;
+  background-color: #b52c00;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
+
+.btn-details:hover {
+  background-color: #8c0005;
+}
+
 
 /* ------------------------------------------------------------------------------------------------------------------------------------- */
 /* editar_producto.html */
