@@ -138,13 +138,13 @@
 /* agg_productos.html */
 /* Contenedor general del formulario de agregar producto */
 .agg-productos-container {
-  max-width: 800px; /* Ajustar al mismo ancho */
+  max-width: 800px;
   margin: 0 auto;
-  padding: 20px; /* Ajustar el padding */
-  background-color: #f8f8f8; /* Fondo ligeramente más claro */
+  padding: 20px; 
+  background-color: #f8f8f8; 
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  box-sizing: border-box; 
 }
 
 /* Encabezado */
@@ -152,12 +152,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px; /* Ajustar la separación inferior */
+  margin-bottom: 25px; 
 }
 
 .agg-productos-title {
-  font-size: 2rem; /* Texto más grande */
-  color: #4d2e1a; /* Color más oscuro para el título */
+  font-size: 2rem; 
+  color: #4d2e1a; 
 }
 
 .agg-productos-back-button {
@@ -189,14 +189,14 @@
 .agg-productos-form .form-group input[type="number"],
 .agg-productos-form .form-group textarea,
 .agg-productos-form .form-group input[type="file"] {
-  width: 100%; /* El input ocupará todo el ancho del contenedor */
-  max-width: 100%; /* Asegura que el input no exceda el ancho del contenedor */
+  width: 100%; 
+  max-width: 100%; 
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
   color: #333;
-  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  box-sizing: border-box; 
 }
 
 .agg-productos-form .form-group input[type="file"] {
@@ -340,9 +340,10 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f8f8; /* Fondo ligeramente más claro */
+  background-color: #f8f8f8; 
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 /* Encabezado */
@@ -350,12 +351,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px; /* Mayor separación inferior */
+  margin-bottom: 25px; 
 }
 
 .editar-producto-title {
-  font-size: 2rem; /* Texto más grande */
-  color: #4d2e1a; /* Color más oscuro para el título */
+  font-size: 2rem; 
+  color: #4d2e1a; 
 }
 
 .editar-producto-back-button {
@@ -414,6 +415,8 @@
   border-radius: 5px;
   background-color: #fff;
   color: #333;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .editar-producto-form .form-group input[type="file"] {
@@ -421,7 +424,8 @@
 }
 
 .editar-producto-submit-button {
-  background-color: #5c0a0a;
+  background-color: #b52c00;
+  font-family: 'Epilogue', 'Noto Sans', sans-serif;
   color: #fcf7d1;
   padding: 12px 25px;
   border: none;
