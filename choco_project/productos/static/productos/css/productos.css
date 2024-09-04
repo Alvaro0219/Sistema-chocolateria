@@ -466,27 +466,27 @@
   color: #f8d7da;
 }
 
-/* Botones de acción */
-.eliminar-producto-actions {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
 .eliminar-producto-delete-button,
 .eliminar-producto-cancel-button {
   background-color: #42292a;
   color: white;
   padding: 10px 20px;
+  margin-top: 20px;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
   border: none;
   cursor: pointer;
+  font-size: 16px; /* Agrega un tamaño de fuente explícito */
+  font-family: Arial, sans-serif; /* Agrega una familia de fuentes explícita */
+  box-sizing: border-box; /* Asegúrate de que el padding esté incluido en el tamaño del elemento */
 }
 
-.eliminar-producto-delete-button:hover,
-.eliminar-producto-cancel-button:hover {
-  background-color: #5f3a3c;
+.eliminar-producto-delete-button {
+  width: 100px; /* Establece un ancho explícito para el botón de eliminar */
+}
+
+.eliminar-producto-cancel-button {
+  width: 100px; /* Establece un ancho explícito para el botón de cancelar */
 }
 
