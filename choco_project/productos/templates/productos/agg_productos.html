@@ -12,7 +12,11 @@
 <div class="agg-productos-container">
     <header class="agg-productos-header">
         <h1 class="agg-productos-title">Agregar Producto</h1>
-        <a href="{% url 'productos:productos' %}" class="agg-productos-back-button">Volver a la lista de productos</a>
+        <a href="{% url 'productos:productos' %}" class="btn-details">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="btn-reset-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </a>
     </header>
 
     <!-- Mostrar mensajes de éxito o error -->
