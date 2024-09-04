@@ -15,6 +15,7 @@ def productos(request):
     return render(request, 'productos/productos.html', {'productos': productos})
 
 def agg_productos(request):
+    # Verifica si la solicitud es de tipo POST, lo que indica que se está enviando un formulario.
     if request.method == 'POST':
         form = ProductoForm(request.POST, request.FILES, request=request)
         if form.is_valid():
@@ -34,6 +35,7 @@ def agg_productos(request):
             else:
                 messages.error(request, "Por favor, completa todos los campos requeridos correctamente.")
     else:
+        # Si la solicitud no es de tipo POST (probablemente GET), se crea una instancia vacía del formulario.
         form = ProductoForm()
 
     return render(request, 'productos/agg_productos.html', {'form': form})
