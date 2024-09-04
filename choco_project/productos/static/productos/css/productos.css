@@ -138,13 +138,13 @@
 /* agg_productos.html */
 /* Contenedor general del formulario de agregar producto */
 .agg-productos-container {
-  max-width: 100%;
+  max-width: 800px; /* Ajustar al mismo ancho */
   margin: 0 auto;
-  padding: 30px;
-  font-family: 'Epilogue', 'Noto Sans', sans-serif;
-  background-color: #201314;
-  color: #fff;
-  border-radius: 30px;
+  padding: 20px; /* Ajustar el padding */
+  background-color: #f8f8f8; /* Fondo ligeramente más claro */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
 /* Encabezado */
@@ -152,87 +152,90 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px; /* Ajustar la separación inferior */
 }
 
 .agg-productos-title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2rem; /* Texto más grande */
+  color: #4d2e1a; /* Color más oscuro para el título */
 }
 
 .agg-productos-back-button {
-  background-color: #42292a;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
   text-decoration: none;
+  background-color: #b52c00;
+  color: #fcf7d1;
+  padding: 10px 15px;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .agg-productos-back-button:hover {
-  background-color: #5f3a3c;
+  background-color: #8c0005;
 }
 
-/* Estilos del formulario */
-.agg-productos-form {
-  display: flex;
-  flex-direction: column;
+/* Formulario */
+.agg-productos-form .form-group {
+  margin-bottom: 20px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.agg-productos-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #4d2e1a;
 }
 
-.form-group label {
-  font-size: 1rem;
-  color: #c19a9c;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 7px;
-  border: 1px solid #5f3a3c;
+.agg-productos-form .form-group input[type="text"],
+.agg-productos-form .form-group input[type="number"],
+.agg-productos-form .form-group textarea,
+.agg-productos-form .form-group input[type="file"] {
+  width: 100%; /* El input ocupará todo el ancho del contenedor */
+  max-width: 100%; /* Asegura que el input no exceda el ancho del contenedor */
+  padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #42292a;
-  color: white;
-  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.agg-productos-form .form-group input[type="file"] {
+  padding: 6px;
 }
 
 .agg-productos-submit-button {
-  background-color: #42292a;
-  color: white;
-  padding: 10px 20px;
+  background-color: #b52c00;
+  color: #fcf7d1;
+  padding: 12px 25px;
+  border: none;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .agg-productos-submit-button:hover {
-  background-color: #5f3a3c;
+  background-color: #8c0005;
 }
 
-/* Estilo para los mensajes */
+/* Mensajes */
 .productos-messages {
   margin-bottom: 20px;
 }
 
 .alert {
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px;
-  font-size: 1rem;
   margin-bottom: 10px;
 }
 
 .alert-success {
-  background-color: #28a745;
-  color: white;
+  background-color: #d4edda;
+  color: #155724;
 }
 
 .alert-error {
-  background-color: #dc3545;
-  color: white;
+  background-color: #f8d7da;
+  color: #721c24;
 }
 /* ------------------------------------------------------------------------------------------------------------------------------------- */
 /* detalle_producto.html */
