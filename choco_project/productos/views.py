@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto, ProductoImagen
 from .forms import ProductoForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 import os
 
+@login_required
 def productos(request):
     productos = Producto.objects.all()
     # Obtener el término de búsqueda desde la barra de búsqueda

@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Login - Delicias ChocolaterIA{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'core/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <!-- Mitad izquierda: Imagen del logo -->
+    <div class="login-logo">
+        <img src="{% static 'core/images/logo.png' %}" alt="Logo Delicias ChocolaterIA">
+    </div>
+    
+    <!-- Mitad derecha: Formulario de inicio de sesión -->
+    <div class="login-form-container">
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+        <p class="form-title">Iniciar Sesión</p>
+        <div class="input-container">
+            <input type="text" name="username" placeholder="Nombre de usuario" required>
+        </div>
+        <div class="input-container">
+            <input type="password" name="password" placeholder="Contraseña" required>
+        </div>
+        <button type="submit" class="submit">Iniciar Sesión</button>
+    </form>
+</div>
+</div>
+{% endblock %}

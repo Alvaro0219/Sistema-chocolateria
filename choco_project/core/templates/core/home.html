@@ -13,8 +13,11 @@
         <img src="{% static 'core/images/logo.png' %}" alt="Logo de ChocolaterIA" class="card__logo">
         <div class="card__content">
             <h2 class="card__title">ChocolaterIA</h2>
-            <p class="card__description">Deliciosos chocolates artesanales.</p>
+            <p class="card__description">{% if request.user.is_authenticated %} {{ user.username | upper }} {% endif %}</p>
         </div>
     </div>
 </div>
 {% endblock %}
+
+
+
