@@ -14,6 +14,15 @@ El template `home.html` es la página principal de bienvenida del sitio web de D
 #### Descripción
 El template base.html es el layout base para la aplicación Django. Define la estructura general del sitio web, incluyendo la barra de navegación y el pie de página. Otros templates extienden este archivo para mantener la coherencia en el diseño de la aplicación.
 
+## LOGIN
+El flujo sería así:
+
+1. El usuario intenta acceder a una URL que requiere autenticación (como /productos/).
+2. Django detecta que el usuario no está autenticado y lo redirige a /accounts/login/.
+3. Django utiliza la vista LoginView para procesar la solicitud.
+4. La vista LoginView utiliza el archivo 'login.html' para mostrar el formulario de inicio de sesión.
+5. Cuando el usuario envía el formulario (nombre de usuario y contraseña) y la autenticación es correcta, Django lo redirige a la página de inicio (o la página que el usuario estaba intentando acceder originalmente).
+
 # Seccion 'Productos'
 *La sección “Productos” de la aplicación Django Delicias ChocolaterIA permite a los usuarios visualizar, buscar y agregar productos al sistema. Esto incluye mostrar una lista de productos, una barra de búsqueda para filtrar productos y un formulario para agregar nuevos productos con detalles e imágenes.*
 
