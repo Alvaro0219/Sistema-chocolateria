@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Eliminar Empleado - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'empleados/css/empleados.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="crear-empleados-container">
+    <header class="crear-empleados-header">
+        <h1 class="crear-empleados-title">Eliminar Empleado</h1>
+        <a href="{% url 'empleados:lista_empleados' %}" class="crear-empleados-back-button">Volver a la lista de empleados</a>
+    </header>
+
+    <p class="confirm-delete-text">¿Estás seguro de que deseas eliminar a {{ empleado.username }}?</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <button type="submit" class="delete-confirm-button">Eliminar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

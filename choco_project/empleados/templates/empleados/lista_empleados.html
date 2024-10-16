@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Lista de Empleados - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'empleados/css/empleados.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="empleados-container">
+    <header class="empleados-header">
+        <h1 class="empleados-title">Lista de Empleados</h1>
+        <a href="{% url 'empleados:crear_empleado' %}" class="empleados-add-button">Agregar Empleado</a>
+    </header>
+
+    <!-- Tabla de empleados -->
+    <div class="empleados-table-container">
+        <table class="empleados-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for empleado in empleados %}
+                <tr>
+                    <td>{{ empleado.username }}</td>
+                    <td>{{ empleado.email }}</td>
+                    <td>{% if empleado.is_superuser %}Administrador{% else %}Empleado{% endif %}</td>
+                    <td>
+                        <a href="{% url 'empleados:editar_empleado' empleado.id %}" class="edit-button">Editar</a>
+                        <a href="{% url 'empleados:eliminar_empleado' empleado.id %}" class="delete-button">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

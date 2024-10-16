@@ -4,12 +4,12 @@
 
 ## Templates
 
-### 1. 'core/home.html'
+### home.html
 
 #### Descripción
 El template `home.html` es la página principal de bienvenida del sitio web de Delicias ChocolaterIA. Presenta una tarjeta central que muestra el logotipo de la empresa con un efecto interactivo que, al pasar el cursor, revela el nombre y una breve descripción del negocio.
 
-### 2.'core/base.html'
+### base.html
 
 #### Descripción
 El template base.html es el layout base para la aplicación Django. Define la estructura general del sitio web, incluyendo la barra de navegación y el pie de página. Otros templates extienden este archivo para mantener la coherencia en el diseño de la aplicación.
@@ -22,6 +22,9 @@ El flujo sería así:
 3. Django utiliza la vista LoginView para procesar la solicitud.
 4. La vista LoginView utiliza el archivo 'login.html' para mostrar el formulario de inicio de sesión.
 5. Cuando el usuario envía el formulario (nombre de usuario y contraseña) y la autenticación es correcta, Django lo redirige a la página de inicio (o la página que el usuario estaba intentando acceder originalmente).
+
+## Restricción de Acceso a Vistas por Tipos de Usuarios
+*Para controlar qué partes del sistema pueden acceder los usuarios administradores y empleados, hemos implementado una serie de decoradores y funciones de utilidad en el archivo utils.py. El objetivo es permitir a los administradores el acceso completo al sistema, mientras que los empleados tienen acceso restringido.*
 
 # Seccion 'Productos'
 *La sección “Productos” de la aplicación Django Delicias ChocolaterIA permite a los usuarios visualizar, buscar y agregar productos al sistema. Esto incluye mostrar una lista de productos, una barra de búsqueda para filtrar productos y un formulario para agregar nuevos productos con detalles e imágenes.*
@@ -162,3 +165,91 @@ El flujo sería así:
   - Mensaje de confirmación preguntando si el usuario está seguro de eliminar el producto.
   - Botón "Eliminar" para confirmar la eliminación.
   - Botón "Cancelar" para cancelar la eliminación y volver a los detalles del producto.
+
+# Seccion 'Empleados'
+
+La funcionalidad de creación de empleados permite que los administradores puedan registrar nuevos usuarios empleados en el sistema. Los empleados se añaden al grupo "Empleados", lo que les otorga permisos específicos que pueden ser gestionados a través del sistema de grupos y permisos de Django.
+
+## Vistas
+
+### crear_empleado()
+
+- **Propósito**: Permitir a los administradores agregar nuevos empleados al sistema.
+- **Características**:
+  - Carga un formulario para registrar un nuevo empleado.
+  - Verifica que los datos sean válidos antes de guardar al nuevo empleado.
+  - Asigna automáticamente el nuevo empleado al grupo correspondiente en la base de datos.
+  - Muestra mensajes de éxito o error en función del resultado de la operación.
+
+### lista_empleados()
+
+- **Propósito**: Listar todos los empleados registrados en el sistema para los administradores.
+- **Características**:
+  - Muestra una tabla con el nombre de usuario de cada empleado.
+  - Incluye opciones para editar o eliminar cada empleado.
+  - Permite a los administradores agregar nuevos empleados a través de un botón visible en la interfaz.
+
+### editar_empleado()
+
+- **Propósito**: Permitir a los administradores actualizar la información de un empleado existente.
+- **Características**:
+  - Carga un formulario pre-llenado con los datos actuales del empleado.
+  - Actualiza la información del empleado si los datos nuevos son válidos.
+  - Redirige a la lista de empleados después de una edición exitosa.
+  - Gestiona la validación para evitar errores comunes como duplicados de nombres.
+
+### eliminar_empleado()
+
+- **Propósito**: Facilitar la eliminación de un empleado del sistema.
+- **Características**:
+  - Muestra una confirmación antes de realizar la eliminación.
+  - Elimina el empleado de la base de datos si se confirma la acción.
+  - Redirige a la lista de empleados después de eliminar.
+
+## Plantillas
+
+### crear_empleado.html
+
+- **Propósito**: Mostrar un formulario para que los administradores puedan crear nuevos empleados.
+- **Características**:
+  - Contiene campos de entrada para el nombre de usuario, contraseña y otros detalles necesarios.
+  - Incluye un botón Guardar para enviar el formulario.
+  - Muestra mensajes de éxito o error según el resultado de la operación.
+  - Permite regresar a la lista de empleados a través de un enlace destacado.
+  - Diseño adaptado para ser visualmente limpio y funcional, facilitando la creación de nuevos empleados sin complicaciones.
+
+### lista_empleados.html
+
+- **Propósito**: Mostrar una lista de todos los empleados registrados en el sistema.
+- **Características**:
+  - Presenta una tabla con los nombres de usuario de cada empleado y acciones para editar o eliminar.
+  - Incluye un botón Agregar Empleado en la parte superior que redirige al formulario para crear un nuevo empleado.
+
+### editar_empleado.html
+
+- **Propósito**: Mostrar un formulario para que los administradores puedan actualizar la información de un empleado existente.
+- **Características**:
+  - Similar al formulario de creación, pero pre-llenado con los datos actuales del empleado.
+  - Permite a los administradores cambiar el nombre de usuario, contraseña y otros detalles del empleado.
+  - Incluye botones para Guardar los cambios o Cancelar y regresar a la lista de empleados.
+  - Muestra mensajes de éxito o error en función del resultado de la operación.
+
+### eliminar_empleado.html
+
+- **Propósito**: Mostrar una confirmación para que los administradores puedan decidir si realmente quieren eliminar un empleado del sistema.
+- **Características**:
+  - Muestra el nombre de usuario del empleado que se va a eliminar, asegurando que el administrador sepa cuál es el usuario afectado.
+  - Incluye un botón Confirmar para proceder con la eliminación, y un botón Cancelar para regresar sin realizar ninguna acción.
+
+## Formularios
+
+### EmpleadoForm
+
+- **Propósito**: Gestionar la creación y edición de cuentas de empleados en el sistema de Django utilizando el modelo de usuario estándar (User) de Django.
+- **Características**:
+  Campos:
+    - username (Nombre de usuario): Campo obligatorio que identifica al empleado en el sistema. Debe ser único.
+    - first_name (Nombre): Campo opcional para el nombre del empleado.
+    - last_name (Apellido): Campo opcional para el apellido del empleado.
+    - email: Campo opcional para el correo electrónico del empleado.
+    - password: Campo obligatorio para establecer la contraseña del empleado. Se utiliza un widget especial (PasswordInput) para ocultar la entrada de texto.

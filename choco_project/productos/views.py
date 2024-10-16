@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto, ProductoImagen
 from .forms import ProductoForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 import os
+from choco_project.utils import es_admin_o_empleado, es_administrador
 
 @login_required
+@user_passes_test(es_admin_o_empleado)
 def productos(request):
     productos = Producto.objects.all()
     # Obtener el término de búsqueda desde la barra de búsqueda
@@ -16,6 +18,8 @@ def productos(request):
 
     return render(request, 'productos/productos.html', {'productos': productos})
 
+@login_required
+@user_passes_test(es_administrador)
 def agg_productos(request):
     # Verifica si la solicitud es de tipo POST, lo que indica que se está enviando un formulario.
     if request.method == 'POST':
@@ -42,11 +46,14 @@ def agg_productos(request):
 
     return render(request, 'productos/agg_productos.html', {'form': form})
 
-
+@login_required
+@user_passes_test(es_administrador)
 def detalle_producto(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
     return render(request, 'productos/detalle_producto.html', {'producto': producto})
 
+@login_required
+@user_passes_test(es_administrador)
 def editar_producto(request, pk):
     # Obtener el producto por su ID, o lanzar un 404 si no existe
     producto = get_object_or_404(Producto, pk=pk)
@@ -84,6 +91,8 @@ def editar_producto(request, pk):
     
     return render(request, 'productos/editar_producto.html', {'form': form, 'producto': producto})
 
+@login_required
+@user_passes_test(es_administrador)
 def eliminar_producto(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
     if request.method == 'POST':

@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Editar Empleado - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'empleados/css/empleados.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="crear-empleados-container">
+    <header class="crear-empleados-header">
+        <h1 class="crear-empleados-title">Editar Empleado</h1>
+        <a href="{% url 'empleados:lista_empleados' %}" class="crear-empleados-back-button">Volver a la lista de empleados</a>
+    </header>
+
+    <form method="post" class="crear-empleados-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group">
+            <button type="submit" class="crear-empleados-submit-button">Guardar Cambios</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

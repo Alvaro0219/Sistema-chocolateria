@@ -1,0 +1,178 @@
+/* Estilos Generales */
+.empleados-container, .crear-empleados-container, .editar-empleados-container, .eliminar-empleados-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #201314; /* Fondo oscuro */
+    color: #fff;
+    font-family: 'Epilogue', 'Noto Sans', sans-serif;
+}
+
+/* Encabezado */
+.empleados-header, .crear-empleados-header, .editar-empleados-header, .eliminar-empleados-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.empleados-title, .crear-empleados-title, .editar-empleados-title, .eliminar-empleados-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.empleados-add-button, .crear-empleados-back-button, .editar-empleados-back-button, .eliminar-empleados-back-button {
+    background-color: #42292a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.empleados-add-button:hover, .crear-empleados-back-button:hover, .editar-empleados-back-button:hover, .eliminar-empleados-back-button:hover {
+    background-color: #5f3a3c;
+}
+
+/* Tabla */
+.empleados-table-container {
+    overflow-x: auto;
+}
+
+.empleados-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2f1d1e;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.empleados-table thead {
+    background-color: #3f2b2c;
+}
+
+.empleados-table th, .empleados-table td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.empleados-table th {
+    color: #c19a9c;
+}
+
+.empleados-table td {
+    color: white;
+    border-bottom: 1px solid #5f3a3c;
+}
+
+.empleados-table tr:hover {
+    background-color: #3f2b2c;
+    cursor: pointer;
+}
+
+.edit-button, .delete-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.edit-button {
+    background-color: #b52c00;
+}
+
+.edit-button:hover {
+    background-color: #8c0005;
+}
+
+.delete-button {
+    background-color: #5c0a0a;
+}
+
+.delete-button:hover {
+    background-color: #b52c00;
+}
+
+/* Formulario Crear y Editar Empleado */
+.crear-empleados-form, .editar-empleados-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.crear-empleados-form label, .editar-empleados-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.crear-empleados-form input, .editar-empleados-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #5f3a3c;
+    border-radius: 5px;
+    background-color: #42292a;
+    color: white;
+}
+
+.crear-empleados-submit-button, .editar-empleados-submit-button {
+    background-color: #5c0a0a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.crear-empleados-submit-button:hover, .editar-empleados-submit-button:hover {
+    background-color: #b52c00;
+}
+
+/* Estilos para la Confirmación de Eliminación */
+.eliminar-empleados-container {
+    max-width: 600px;
+    text-align: center;
+}
+
+.confirm-delete-text {
+    color: #c19a9c;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Botones de Confirmación de Eliminación */
+.delete-confirm-button {
+    background-color: #b52c00; /* Rojo brillante para llamar la atención */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.delete-confirm-button:hover {
+    background-color: #8c0005;
+}
+
+.cancel-delete-button {
+    background-color: #5f3a3c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-delete-button:hover {
+    background-color: #3f2b2c;
+}
