@@ -12,6 +12,7 @@
 <body>
 
     <!-- Navbar -->
+    {% if request.user.is_authenticated %}
     <header class="navbar">
         <div class="navbar-container">
             <a href="{% url 'home' %}" class="navbar-brand">ChocolaterIA</a>
@@ -20,16 +21,14 @@
                 <a href="#">Pedidos</a>
                 <a href="#">Estadísticas</a>
                 <a href="{% url 'empleados:lista_empleados' %}">Empleados</a>
-                {% if request.user.is_authenticated %}
-                    <a href={% url 'exit' %}>Cerrar sesion</a>
-                {% endif %}
+                <a href="{% url 'exit' %}">Cerrar sesión</a>
             </nav>
         </div>
     </header>
+    {% endif %}
 
     <main class="content">
         {% block content %}
-        
         {% endblock %}
     </main>
 
