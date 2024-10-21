@@ -20,7 +20,11 @@
                 <a href="#">Pedidos</a>
                 <a href="#">Estadísticas</a>
                 <a href="{% url 'empleados:lista_empleados' %}">Empleados</a>
-                <a href="{% url 'logout' %}">Cerrar sesión</a>
+                <!-- Formulario de cierre de sesión -->
+                <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <a href="#" onclick="document.getElementById('logout-form').submit();">Cerrar sesión</a>
             </nav>
         </div>
     </header>
