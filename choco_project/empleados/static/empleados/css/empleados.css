@@ -143,6 +143,10 @@
     color: white;
 }
 
+/*Ocultamos un mensaje en el formulario de username */
+.helptext {
+    display: none;
+}
 
 .crear-empleados-form input, .editar-empleados-form input {
     width: 100%;
