@@ -137,17 +137,22 @@
 
 .crear-empleados-form label, .editar-empleados-form label {
     display: block;
+    margin-top: 12px; /* Aumentar el margen superior para separarlo de la caja de arriba */
+    margin-bottom: 4px; /* Reducir el margen inferior para acercarlo al campo */
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    color: white;
 }
+
 
 .crear-empleados-form input, .editar-empleados-form input {
     width: 100%;
-    padding: 10px;
+    max-width: 100%;
+    padding: 12px;
     border: 1px solid #5f3a3c;
     border-radius: 5px;
     background-color: #42292a;
     color: white;
+    box-sizing: border-box;
 }
 
 .crear-empleados-submit-button, .editar-empleados-submit-button {
