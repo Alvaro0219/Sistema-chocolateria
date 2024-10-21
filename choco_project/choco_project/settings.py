@@ -134,5 +134,6 @@ MESSAGE_TAGS = {
 }
 
 #CONFIGURACIÓN DE INICIO DE SESIÓN
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+# Redirige al home después de iniciar sesión
+LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/'

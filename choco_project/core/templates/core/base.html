@@ -10,7 +10,6 @@
     {% block extra_head %}{% endblock %}
 </head>
 <body>
-
     <!-- Navbar -->
     {% if request.user.is_authenticated %}
     <header class="navbar">
@@ -21,12 +20,12 @@
                 <a href="#">Pedidos</a>
                 <a href="#">Estadísticas</a>
                 <a href="{% url 'empleados:lista_empleados' %}">Empleados</a>
-                <a href="{% url 'exit' %}">Cerrar sesión</a>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
             </nav>
         </div>
     </header>
     {% endif %}
-
+    
     <main class="content">
         {% block content %}
         {% endblock %}

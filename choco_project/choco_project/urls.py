@@ -6,11 +6,13 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', auth_views.LoginView.as_view(), name='login'),  # Redirige a login al inicio
-    path('', include('core.urls')), 
+    # El LoginView predeterminado de Django manejará la raíz del sitio
+    path('', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
+    path('home/', include('core.urls')),
     path('productos/', include('productos.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
     path('empleados/', include('empleados.urls')),
+    # LogoutView que redirige a la página de login después de cerrar sesión
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]
 
 if settings.DEBUG:
