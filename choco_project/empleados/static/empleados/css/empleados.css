@@ -21,7 +21,7 @@
     font-weight: bold;
 }
 
-.empleados-add-button, .crear-empleados-back-button, .editar-empleados-back-button, .eliminar-empleados-back-button {
+.empleados-add-button {
     background-color: #42292a;
     color: white;
     padding: 10px 20px;
@@ -29,6 +29,35 @@
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
+
+.crear-empleados-back-button {
+    padding: 10px;
+    background-color: #b52c00;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.editar-empleados-back-button {
+    background-color: #42292a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.eliminar-empleados-back-button {
+    background-color: #42292a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
 
 .empleados-add-button:hover, .crear-empleados-back-button:hover, .editar-empleados-back-button:hover, .eliminar-empleados-back-button:hover {
     background-color: #5f3a3c;
@@ -78,6 +107,12 @@
     text-decoration: none;
     color: #fff;
 }
+
+.btn-reset-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+  }
 
 .edit-button {
     background-color: #b52c00;
