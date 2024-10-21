@@ -19,7 +19,7 @@
         <form action="{% url 'productos:eliminar_producto' producto.pk %}" method="post">
             {% csrf_token %}
             <button type="submit" class="eliminar-producto-delete-button">Eliminar</button>
-            <a href="{% url 'productos:detalle_producto' producto.pk %}" class="eliminar-producto-cancel-button">Cancelar</a>
+            <a href="{% url 'productos:productos' %}" class="eliminar-producto-cancel-button">Cancelar</a>
         </form>
     </div>
 </div>

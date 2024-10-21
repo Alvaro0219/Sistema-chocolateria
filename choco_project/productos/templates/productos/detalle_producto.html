@@ -32,11 +32,6 @@
         {% endfor %}
     </div>
 
-    <!-- Botones de acción -->
-    <div class="producto-acciones">
-        <a href="{% url 'productos:editar_producto' pk=producto.id %}" class="detalle-producto-edit-button">Editar</a>
-        <a href="{% url 'productos:eliminar_producto' pk=producto.id %}" class="detalle-producto-delete-button">Eliminar</a>
-    </div>
 </div>
 
 {% endblock %}

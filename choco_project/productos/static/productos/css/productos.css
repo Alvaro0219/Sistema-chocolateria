@@ -133,6 +133,36 @@
   cursor: pointer;
 }
 
+.edit-button, .delete-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-reset-icon {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+}
+
+.edit-button {
+  background-color: #b52c00;
+}
+
+.edit-button:hover {
+  background-color: #8c0005;
+}
+
+.delete-button {
+  background-color: #5c0a0a;
+}
+
+.delete-button:hover {
+  background-color: #b52c00;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* agg_productos.html */
@@ -217,6 +247,7 @@
   background-color: #8c0005;
 }
 
+
 /* Mensajes */
 .productos-messages {
   margin-bottom: 20px;
@@ -290,30 +321,6 @@
   object-fit: cover;
   background-color: #eee;
   border: 2px solid #ddd;
-}
-
-/* Acciones (Editar, Eliminar, Volver a la lista) */
-.producto-acciones {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.detalle-producto-edit-button,
-.detalle-producto-delete-button {
-  background-color: #b52c00;
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.detalle-producto-edit-button:hover,
-.detalle-producto-delete-button:hover {
-  background-color: #8c0005;
 }
 
 /* Flecha de 'Volver a la lista' */
