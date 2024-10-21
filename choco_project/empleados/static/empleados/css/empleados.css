@@ -125,6 +125,7 @@
     width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 10px;
 }
 
 .crear-empleados-submit-button:hover, .editar-empleados-submit-button:hover {
