@@ -1,5 +1,5 @@
 /* Estilos Generales */
-.empleados-container, .crear-empleados-container, .editar-empleados-container, .eliminar-empleados-container {
+.empleados-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -7,6 +7,36 @@
     color: #fff;
     font-family: 'Epilogue', 'Noto Sans', sans-serif;
 }
+
+.crear-empleados-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px; 
+    background-color: #f8f8f8; 
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+}
+
+.editar-empleados-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px; 
+    background-color: #f8f8f8; 
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+}
+
+.eliminar-empleados-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #201314; /* Fondo oscuro */
+    color: #fff;
+    font-family: 'Epilogue', 'Noto Sans', sans-serif;
+}
+
 
 /* Encabezado */
 .empleados-header, .crear-empleados-header, .editar-empleados-header, .eliminar-empleados-header {
@@ -16,9 +46,14 @@
     margin-bottom: 20px;
 }
 
-.empleados-title, .crear-empleados-title, .editar-empleados-title, .eliminar-empleados-title {
+.crear-empleados-title, .editar-empleados-title, .eliminar-empleados-title {
     font-size: 2rem;
-    font-weight: bold;
+    color: #4d2e1a;
+}
+
+.empleados-title{
+    font-size: 2rem;
+    color: white;
 }
 
 .empleados-add-button {
@@ -140,8 +175,9 @@
     margin-top: 12px; /* Aumentar el margen superior para separarlo de la caja de arriba */
     margin-bottom: 4px; /* Reducir el margen inferior para acercarlo al campo */
     font-weight: bold;
-    color: white;
+    color: #4d2e1a;
 }
+
 
 /*Ocultamos un mensaje en el formulario de username */
 .helptext {
@@ -152,25 +188,24 @@
     width: 100%;
     max-width: 100%;
     padding: 12px;
-    border: 1px solid #5f3a3c;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #42292a;
-    color: white;
+    background-color: #fff;
+    color: #333;
     box-sizing: border-box;
 }
 
 .crear-empleados-submit-button, .editar-empleados-submit-button {
-    background-color: #5c0a0a;
-    color: white;
-    padding: 10px 20px;
+    background-color: #b52c00;
+    color: #fcf7d1;
+    padding: 12px 25px;
+    border: none;
     border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 10px;
+    margin-top: 10px;
 }
+
 
 .crear-empleados-submit-button:hover, .editar-empleados-submit-button:hover {
     background-color: #b52c00;
@@ -183,7 +218,7 @@
 }
 
 .confirm-delete-text {
-    color: #c19a9c;
+    color: #4d2e1a;
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
