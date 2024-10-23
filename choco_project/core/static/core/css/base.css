@@ -291,3 +291,13 @@ body {
   }
 }
 
+.error-message {
+  background-color: #ff4d4d; /* Fondo rojo para resaltar el error */
+  color: white; /* Texto blanco */
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+

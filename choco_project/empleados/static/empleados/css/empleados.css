@@ -172,8 +172,8 @@
 
 .crear-empleados-form label, .editar-empleados-form label {
     display: block;
-    margin-top: 12px; /* Aumentar el margen superior para separarlo de la caja de arriba */
-    margin-bottom: 4px; /* Reducir el margen inferior para acercarlo al campo */
+    margin-top: 12px;
+    margin-bottom: 4px;
     font-weight: bold;
     color: #4d2e1a;
 }
