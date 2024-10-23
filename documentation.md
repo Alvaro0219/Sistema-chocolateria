@@ -19,7 +19,7 @@ El flujo sería así:
 
 1. El usuario intenta acceder a una URL que requiere autenticación (como /productos/).
 2. Django detecta que el usuario no está autenticado y lo redirige a /accounts/login/.
-3. Django utiliza la vista LoginView para procesar la solicitud.
+3. Django utiliza la vista LoginView para procesar la solicitud de inicio de sesion.
 4. La vista LoginView utiliza el archivo 'login.html' para mostrar el formulario de inicio de sesión.
 5. Cuando el usuario envía el formulario (nombre de usuario y contraseña) y la autenticación es correcta, Django lo redirige a la página de inicio (o la página que el usuario estaba intentando acceder originalmente).
 

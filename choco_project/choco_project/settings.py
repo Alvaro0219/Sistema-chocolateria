@@ -137,3 +137,5 @@ MESSAGE_TAGS = {
 # Redirige al home después de iniciar sesión
 LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/'
+
