@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Crear Pedido - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'pedidos/css/pedidos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="pedido-container">
+    <header class="pedido-header">
+        <h1 class="pedido-title">Crear Pedido</h1>
+        <a href="{% url 'home' %}" class="pedido-back-button">Volver al inicio</a>
+    </header>
+
+    <!-- Formulario de creación de pedido -->
+    <form method="post" enctype="multipart/form-data" class="pedido-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.imagen.label_tag }}
+            {{ form.imagen }}
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="pedido-submit-button">Crear Pedido</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

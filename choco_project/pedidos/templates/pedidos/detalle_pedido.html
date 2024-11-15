@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Detalle del Pedido - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'pedidos/css/pedidos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detalle-pedido-container">
+    <h1 class="detalle-pedido-title">Detalle del Pedido {{ pedido.id }}</h1>
+    <p><strong>Fecha:</strong> {{ pedido.fecha }}</p>
+    <p><strong>Cajero:</strong> {{ pedido.cajero.username }}</p>
+
+    <!-- Tabla de productos en el pedido -->
+    <div class="pedido-productos">
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in productos %}
+                <tr>
+                    <td>{{ item.producto.nombre }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>${{ item.precio_unitario }}</td>
+                    <td>${{ item.subtotal }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Total del pedido -->
+    <p class="pedido-total"><strong>Total:</strong> ${{ pedido.total }}</p>
+</div>
+{% endblock %}

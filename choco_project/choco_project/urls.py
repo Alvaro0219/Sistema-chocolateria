@@ -11,6 +11,7 @@ urlpatterns = [
     path('productos/', include('productos.urls')),
     path('empleados/', include('empleados.urls')),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('pedidos/', include('pedidos.urls')),
 ]
 
 if settings.DEBUG:

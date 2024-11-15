@@ -1,0 +1,132 @@
+/* Crear_pedido.html */
+
+/* Estilos Generales */
+.pedido-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #201314; /* Fondo oscuro */
+    color: #fff;
+    font-family: 'Epilogue', 'Noto Sans', sans-serif;
+    border-radius: 10px;
+}
+
+/* Encabezado */
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pedido-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.pedido-back-button {
+    background-color: #42292a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.pedido-back-button:hover {
+    background-color: #5f3a3c;
+}
+
+/* Formulario */
+.pedido-form {
+    background-color: #2f1d1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pedido-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.pedido-form label {
+    display: block;
+    font-weight: bold;
+    color: #ffc107;
+    margin-bottom: 0.5rem;
+}
+
+.pedido-form input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #5f3a3c;
+    border-radius: 5px;
+    background-color: #42292a;
+    color: white;
+}
+
+.pedido-submit-button {
+    background-color: #5c0a0a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pedido-submit-button:hover {
+    background-color: #b52c00;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+/* detalle_pedido.html */
+
+/* Estilos Generales */
+.detalle-pedido-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #201314;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.detalle-pedido-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff4c4c;
+}
+
+/* Tabla de Productos */
+.pedido-productos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.pedido-productos th, .pedido-productos td {
+    padding: 10px;
+    border-bottom: 1px solid #5f3a3c;
+    text-align: left;
+}
+
+.pedido-productos th {
+    background-color: #3f2b2c;
+    color: #c19a9c;
+}
+
+.pedido-productos td {
+    color: #fff;
+}
+
+/* Total del Pedido */
+.pedido-total {
+    font-size: 1.5rem;
+    color: #c19a9c;
+    text-align: right;
+}
