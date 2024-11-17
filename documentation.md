@@ -253,3 +253,24 @@ La funcionalidad de creación de empleados permite que los administradores pueda
     - last_name (Apellido): Campo opcional para el apellido del empleado.
     - email: Campo opcional para el correo electrónico del empleado.
     - password: Campo obligatorio para establecer la contraseña del empleado. Se utiliza un widget especial (PasswordInput) para ocultar la entrada de texto.
+
+# Seccion 'Pedidos'
+
+## Flujo de trabajo 
+1. Vista crear_pedido:
+  - El cajero sube una imagen del pedido.
+  - Se guarda en el modelo Pedido.
+
+2. Vista detalle_pedido:
+  - Procesa la imagen.
+  - Extrae los productos reconocidos.
+  - Actualiza el pedido con los productos reconocidos.
+  - Permite al cajero editar manualmente los productos y cantidades.
+
+3. Edición Manual del Pedido:
+  - Agregar o eliminar productos manualmente.
+  - Recalcular el total automáticamente.
+
+4. Cierre del Pedido:
+  - Cuando el pedido está completo, se guarda y queda listo para su gestión. 
+
