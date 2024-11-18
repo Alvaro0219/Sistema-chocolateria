@@ -84,7 +84,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #201314;
+    background-color: #f8f8f8;
     color: #fff;
     border-radius: 10px;
 }
@@ -93,7 +93,11 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #ff4c4c;
+    color: #4d2e1a;
+}
+
+.infoText{
+    color: #4d2e1a;
 }
 
 /* Tabla de Productos */
@@ -105,13 +109,13 @@
 
 .pedido-productos th, .pedido-productos td {
     padding: 10px;
-    border-bottom: 1px solid #5f3a3c;
+    border-bottom: 1px solid #b52c00;
     text-align: left;
 }
 
 .pedido-productos th {
-    background-color: #3f2b2c;
-    color: #c19a9c;
+    background-color: #b52c00;
+    color: white;
 }
 
 .pedido-productos td {
@@ -121,6 +125,6 @@
 /* Total del Pedido */
 .pedido-total {
     font-size: 1.5rem;
-    color: #c19a9c;
+    color: black;
     text-align: right;
 }

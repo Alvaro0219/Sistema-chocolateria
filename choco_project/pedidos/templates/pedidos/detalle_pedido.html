@@ -11,8 +11,8 @@
 {% block content %}
 <div class="detalle-pedido-container">
     <h1 class="detalle-pedido-title">Detalle del Pedido {{ pedido.id }}</h1>
-    <p><strong>Fecha:</strong> {{ pedido.fecha }}</p>
-    <p><strong>Cajero:</strong> {{ pedido.cajero.username }}</p>
+    <p class="infoText"><strong>Fecha:</strong> {{ pedido.fecha }}</p>
+    <p class="infoText"><strong>Cajero:</strong> {{ pedido.cajero.username }}</p>
 
     <!-- Tabla de productos en el pedido -->
     <div class="pedido-productos">
