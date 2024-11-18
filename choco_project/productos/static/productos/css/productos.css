@@ -452,7 +452,7 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #201314;
+  background-color: #f8f8f8;
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -464,18 +464,18 @@
 .eliminar-producto-title {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #ff4c4c;
+  color: #4d2e1a;
 }
 
 /* Texto de advertencia */
 .eliminar-producto-text {
   margin-bottom: 15px;
-  color: #f8d7da;
+  color: #4d2e1a;
 }
 
 .eliminar-producto-delete-button,
 .eliminar-producto-cancel-button {
-  background-color: #42292a;
+  background-color: #b52c00;
   color: white;
   padding: 10px 20px;
   margin-top: 20px;
@@ -495,5 +495,9 @@
 
 .eliminar-producto-cancel-button {
   width: 100px; /* Establece un ancho explícito para el botón de cancelar */
+}
+
+.infoText{
+  color: #4d2e1a;
 }
 

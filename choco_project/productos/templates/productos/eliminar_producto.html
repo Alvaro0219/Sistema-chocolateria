@@ -12,8 +12,8 @@
 <div class="eliminar-producto-container">
     <h1 class="eliminar-producto-title">¿Estás seguro de que deseas eliminar este producto?</h1>
     <p class="eliminar-producto-text">Esta acción no se puede deshacer.</p>
-    <p><strong>Producto:</strong> {{ producto.nombre }}</p>
-    <p><strong>Código:</strong> {{ producto.codigo }}</p>
+    <p class="infoText"><strong>Producto:</strong> {{ producto.nombre }}</p>
+    <p class="infoText"><strong>Código:</strong> {{ producto.codigo }}</p>
 
     <div class="eliminar-producto-actions">
         <form action="{% url 'productos:eliminar_producto' producto.pk %}" method="post">
