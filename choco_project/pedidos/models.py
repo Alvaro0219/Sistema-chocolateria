@@ -14,6 +14,18 @@ class Pedido(models.Model):
         self.total = sum(item.subtotal for item in self.productos.all())
         self.save()
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.imagen:
+            self.procesar_imagen(self.imagen.path)
+
+    def procesar_imagen(self, image_path):
+        from PIL import Image
+        with Image.open(image_path) as img:
+            img = img.resize((600, 600))  # Tamaño más grande para pedidos
+            img.save(image_path)
+
+
 class PedidoProducto(models.Model):
     pedido = models.ForeignKey(Pedido, related_name='productos', on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)

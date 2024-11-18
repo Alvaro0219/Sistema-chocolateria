@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import PedidoForm
-from .models import Pedido
+from .models import Pedido, PedidoProducto
 from django.urls import reverse
+from .utils import reconocer_productos_por_segmento
+from django.db import transaction
 
 
 def crear_pedido(request):
@@ -19,12 +21,29 @@ def crear_pedido(request):
 
 def detalle_pedido(request, pedido_id):
     pedido = get_object_or_404(Pedido, id=pedido_id)
-    
-    # Recalcula el total antes de renderizar, en caso de actualizaciones recientes
-    pedido.calcular_total()
-    
-    context = {
-        'pedido': pedido,
-        'productos': pedido.productos.all(),  # Acceso a todos los productos del pedido
-    }
-    return render(request, 'pedidos/detalle_pedido.html', context)
+
+    if pedido.imagen:
+        try:
+            productos_detectados = reconocer_productos_por_segmento(pedido.imagen.path)
+
+            if not productos_detectados:
+                messages.warning(request, "No se detectaron productos en la imagen.")
+            else:
+                with transaction.atomic():
+                    for producto, cantidad in productos_detectados.items():
+                        pedido_producto, creado = PedidoProducto.objects.get_or_create(
+                            pedido=pedido,
+                            producto=producto,
+                            defaults={'cantidad': cantidad}
+                        )
+                        if not creado:
+                            pedido_producto.cantidad += cantidad
+                            pedido_producto.save()
+
+                    pedido.calcular_total()
+
+                messages.success(request, "Productos procesados correctamente.")
+        except Exception as e:
+            messages.error(request, f"Ocurrió un error al procesar la imagen: {str(e)}")
+
+    return render(request, 'pedidos/detalle_pedido.html', {'pedido': pedido})
