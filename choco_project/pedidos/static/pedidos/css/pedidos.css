@@ -22,16 +22,7 @@
 .pedido-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #ffc107;
-}
-
-.pedido-back-button {
-    background-color: #42292a;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    color: white;
 }
 
 .pedido-back-button:hover {
@@ -48,18 +39,19 @@
 
 .pedido-form .form-group {
     margin-bottom: 1.5rem;
+    color: white;
 }
 
 .pedido-form label {
     display: block;
     font-weight: bold;
-    color: #ffc107;
+    color: white;
     margin-bottom: 0.5rem;
 }
 
 .pedido-form input[type="file"] {
     display: block;
-    width: 100%;
+    width: 95%;
     padding: 10px;
     border: 1px solid #5f3a3c;
     border-radius: 5px;
@@ -74,9 +66,11 @@
     border-radius: 5px;
     font-weight: bold;
     text-transform: uppercase;
-    width: 100%;
+    width: 80%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: block; /* Hace que el botón sea un elemento de bloque */
+    margin: 0 auto; /* Centra el botón horizontalmente */
 }
 
 .pedido-submit-button:hover {
