@@ -61,5 +61,17 @@
 
     <!-- Total del pedido -->
     <p class="pedido-total"><strong>Total: ${{ pedido.total }}</strong> </p>
+
+    <!-- Botones de Confirmar y Cancelar -->
+    <div class="pedido-buttons">
+        <form method="post" action="{% url 'pedidos:generar_qr' pedido.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-confirmar">Confirmar Pedido</button>
+        </form>
+        <form method="post" action="{% url 'pedidos:cancelar_pedido' pedido.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-cancelar">Cancelar Pedido</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -318,6 +318,63 @@
 
 .btn-agregar-producto i {
     font-size: 18px;
+    background-color: #b52c00; /* Igual que en detalle-pedido */
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-agregar-producto:hover {
+    background-color: #8c0005; /* Igual que en detalle-pedido */
+}
+
+.btn-agregar-producto i {
+    font-size: 18px;
+}
+
+.pedido-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.btn-confirmar, .btn-cancelar {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-confirmar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-confirmar:hover {
+    background-color: #218838;
+}
+
+.btn-cancelar {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background-color: #c82333;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -408,3 +465,5 @@
 .btn-details:hover {
     background-color: #b52c00;
 }
+
+

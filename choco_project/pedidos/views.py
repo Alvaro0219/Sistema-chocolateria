@@ -6,6 +6,13 @@ from django.urls import reverse
 from .utils import reconocer_productos_por_segmento
 from django.db import transaction
 from productos.models import Producto
+import qrcode
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+import os
 
 def ultimos_pedidos(request):
     """
@@ -15,9 +22,6 @@ def ultimos_pedidos(request):
     return render(request, 'pedidos/ultimos_pedidos.html', {'ultimos_pedidos': ultimos_pedidos})
 
 def crear_pedido(request):
-    """
-    Permite crear un nuevo pedido cargando una imagen.
-    """
     if request.method == 'POST':
         form = PedidoForm(request.POST, request.FILES)
         if form.is_valid():
@@ -28,7 +32,6 @@ def crear_pedido(request):
     else:
         form = PedidoForm()
     return render(request, 'pedidos/crear_pedido.html', {'form': form})
-
 
 def detalle_pedido(request, pedido_id):
     """
@@ -73,7 +76,6 @@ def sumar_producto(request, producto_id):
     producto_pedido.pedido.calcular_total()  # Actualiza el total del pedido
     return redirect('pedidos:detalle_pedido', pedido_id=producto_pedido.pedido.id)
 
-
 def restar_producto(request, producto_id):
     """
     Decrementa la cantidad del producto en el pedido, pero no permite cantidades menores a 1.
@@ -86,7 +88,6 @@ def restar_producto(request, producto_id):
     return redirect('pedidos:detalle_pedido', pedido_id=producto_pedido.pedido.id)
 
 
-
 def eliminar_producto(request, producto_id):
     """
     Elimina un producto del pedido.
@@ -97,7 +98,6 @@ def eliminar_producto(request, producto_id):
     pedido = get_object_or_404(Pedido, id=pedido_id)
     pedido.calcular_total()  # Actualiza el total del pedido
     return redirect('pedidos:detalle_pedido', pedido_id=pedido_id)
-
 
 def agregar_producto(request, pedido_id):
     """
@@ -122,3 +122,85 @@ def agregar_producto(request, pedido_id):
 
     productos = Producto.objects.all()
     return render(request, 'pedidos/agregar_producto.html', {'productos': productos, 'pedido_id': pedido_id})
+
+import qrcode
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+import os
+
+def generar_qr(request, pedido_id):
+    # Crea el directorio si no existe
+    temp_dir = os.path.join("media", "tmp")
+    os.makedirs(temp_dir, exist_ok=True)
+
+    # Define la ruta completa del archivo
+    qr_file_path = os.path.join(temp_dir, "qr_temp.png")
+    
+    # Obtener el pedido
+    pedido = get_object_or_404(Pedido, id=pedido_id)
+
+    # Datos de la factura
+    factura_data = (
+        f"Pedido ID: {pedido.id}\n"
+        f"Total: ${pedido.total}\n"
+        f"Fecha: {pedido.fecha.strftime('%Y-%m-%d %H:%M:%S')}\n"  # Formatear la fecha
+        f"Cajero: {pedido.cajero.username}\n"
+        f"Detalle del Pedido:\n"
+    )
+    for producto in pedido.productos.all():
+        factura_data += (
+            f" - {producto.producto.nombre}: {producto.cantidad} x ${producto.precio_unitario} "
+            f"(Subtotal: ${producto.subtotal})\n"
+        )
+
+    # Crear el QR
+    qr = qrcode.QRCode(version=1, box_size=10, border=4)
+    qr.add_data(factura_data)
+    qr.make(fit=True)
+    qr_img = qr.make_image(fill_color="black", back_color="white")
+
+    # Guardar el QR en un archivo temporal
+    qr_img.save(qr_file_path)
+
+    # Crear el PDF
+    buffer = BytesIO()
+    p = canvas.Canvas(buffer, pagesize=letter)
+    p.drawString(100, 750, "Factura - Delicias ChocolaterIA")
+    p.drawString(100, 735, f"Pedido ID: {pedido.id}")
+    p.drawString(100, 720, f"Fecha: {pedido.fecha.strftime('%Y-%m-%d %H:%M:%S')}")
+    p.drawString(100, 705, f"Cajero: {pedido.cajero.username}")
+    p.drawString(100, 690, f"Total: ${pedido.total}")
+
+    y_position = 675
+    for producto in pedido.productos.all():
+        p.drawString(
+            100,
+            y_position,
+            f"{producto.producto.nombre}: {producto.cantidad} x ${producto.precio_unitario} "
+            f"(Subtotal: ${producto.subtotal})",
+        )
+        y_position -= 20  # Aumentar el espacio entre renglones
+
+    # Insertar el QR en la misma página
+    p.drawImage(qr_file_path, 100, y_position - 220, width=200, height=200)  # Ajustar la posición del QR
+
+    # Guardar el PDF
+    p.showPage()
+    p.save()
+    buffer.seek(0)
+
+    # Enviar el PDF como respuesta HTTP
+    response = HttpResponse(buffer, content_type="application/pdf")
+    response["Content-Disposition"] = f"attachment; filename=Factura_Pedido_{pedido.id}.pdf"
+    return response
+def cancelar_pedido(request, pedido_id):
+    """
+    Cancela el pedido y redirige al listado de pedidos.
+    """
+    pedido = get_object_or_404(Pedido, id=pedido_id)
+    pedido.delete()
+    messages.success(request, "El pedido ha sido cancelado correctamente.")
+    return redirect('pedidos:crear_pedido')
