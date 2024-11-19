@@ -49,7 +49,7 @@
                         </a>
 
                         <!-- Botón para eliminar -->
-                        <a href="{% url 'pedidos:eliminar_producto' producto.id %}" class="btn-accion btn-eliminar">
+                        <a href="{% url 'pedidos:eliminar_producto' producto.id %}" class="btn-accion btn-eliminar" onclick="return confirmarEliminacion('{{ producto.producto.nombre }}');">
                             <i class="fas fa-trash"></i>
                         </a>
                     </td> 
@@ -64,14 +64,32 @@
 
     <!-- Botones de Confirmar y Cancelar -->
     <div class="pedido-buttons">
-        <form method="post" action="{% url 'pedidos:generar_qr' pedido.id %}">
+        <form id="confirmarPedidoForm" method="post" action="{% url 'pedidos:generar_qr' pedido.id %}">
             {% csrf_token %}
             <button type="submit" class="btn-confirmar">Confirmar Pedido</button>
         </form>
-        <form method="post" action="{% url 'pedidos:cancelar_pedido' pedido.id %}">
+        <form id="cancelarPedidoForm" method="post" action="{% url 'pedidos:cancelar_pedido' pedido.id %}">
             {% csrf_token %}
             <button type="submit" class="btn-cancelar">Cancelar Pedido</button>
         </form>
     </div>
 </div>
+
+<script>
+document.getElementById('confirmarPedidoForm').addEventListener('submit', function(event) {
+    if (!confirm('¿Estás seguro de que deseas confirmar el pedido?')) {
+        event.preventDefault();
+    }
+});
+
+document.getElementById('cancelarPedidoForm').addEventListener('submit', function(event) {
+    if (!confirm('¿Estás seguro de que deseas cancelar el pedido?')) {
+        event.preventDefault();
+    }
+});
+
+function confirmarEliminacion(nombreProducto) {
+    return confirm('¿Estás seguro de que deseas eliminar el chocolate ' + nombreProducto + '?');
+}
+</script>
 {% endblock %}
