@@ -105,16 +105,17 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .pedido-productos th, .pedido-productos td {
     padding: 10px;
-    border-bottom: 1px solid #b52c00;
+    border-bottom: 1px solid #4d2e1a;
     text-align: left;
 }
 
 .pedido-productos th {
-    background-color: #b52c00;
+    background-color: #4d2e1a;
     color: white;
 }
 
@@ -127,4 +128,68 @@
     font-size: 1.5rem;
     color: black;
     text-align: right;
+}
+
+/* Botones de acción */
+.btn-accion {
+    background-color: #4CAF50; /* Verde para sumar */
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-sumar {
+    background-color: #b52c00; 
+}
+
+.btn-restar {
+    background-color: #b52c00; 
+}
+
+.btn-eliminar {
+    background-color: #b52c00; 
+}
+
+.btn-accion:hover {
+    transform: scale(1.05);
+}
+
+.btn-accion:active {
+    transform: scale(0.95);
+}
+
+.detalle-pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Botón para agregar producto */
+.btn-agregar-producto {
+    background-color: #b52c00;
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+
+}
+
+.btn-agregar-producto:hover {
+    background-color: #8c0005; 
+}
+
+/* Ícono dentro del botón */
+.btn-agregar-producto i {
+    font-size: 18px;
 }
