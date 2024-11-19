@@ -7,8 +7,17 @@ from .utils import reconocer_productos_por_segmento
 from django.db import transaction
 from productos.models import Producto
 
+def ultimos_pedidos(request):
+    """
+    Muestra los últimos 10 pedidos con un botón para crear un nuevo pedido.
+    """
+    ultimos_pedidos = Pedido.objects.order_by('-fecha')[:10]
+    return render(request, 'pedidos/ultimos_pedidos.html', {'ultimos_pedidos': ultimos_pedidos})
 
 def crear_pedido(request):
+    """
+    Permite crear un nuevo pedido cargando una imagen.
+    """
     if request.method == 'POST':
         form = PedidoForm(request.POST, request.FILES)
         if form.is_valid():
@@ -19,6 +28,7 @@ def crear_pedido(request):
     else:
         form = PedidoForm()
     return render(request, 'pedidos/crear_pedido.html', {'form': form})
+
 
 def detalle_pedido(request, pedido_id):
     """

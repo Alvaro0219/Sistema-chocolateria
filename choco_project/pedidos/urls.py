@@ -4,6 +4,7 @@ from . import views
 app_name = 'pedidos'
 
 urlpatterns = [
+    path('', views.ultimos_pedidos, name='ultimos_pedidos'),
     path('crear/', views.crear_pedido, name='crear_pedido'),
     path('<int:pedido_id>/', views.detalle_pedido, name='detalle_pedido'),
     path('<int:pedido_id>/agregar/', views.agregar_producto, name='agregar_producto'),

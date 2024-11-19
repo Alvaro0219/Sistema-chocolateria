@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Últimos Pedidos - Delicias ChocolaterIA{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'pedidos/css/pedidos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="ultimos-pedidos-container">
+    <header class="ultimos-pedidos-header">
+        <h1 class="ultimos-pedidos-title">Últimos Pedidos</h1>
+        <a href="{% url 'pedidos:crear_pedido' %}" class="ultimos-pedidos-add-button">Nuevo Pedido</a>
+    </header>
+
+    <div class="ultimos-pedidos-table-container">
+        <table class="ultimos-pedidos-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Cajero</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in ultimos_pedidos %}
+                <tr>
+                    <td>{{ pedido.id }}</td>
+                    <td>{{ pedido.fecha }}</td>
+                    <td>{{ pedido.cajero.username }}</td>
+                    <td>${{ pedido.total }}</td>
+                    <td>
+                        <a href="{% url 'pedidos:detalle_pedido' pedido.id %}" class="btn-details">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
