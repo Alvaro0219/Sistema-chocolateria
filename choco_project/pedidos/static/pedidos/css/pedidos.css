@@ -130,35 +130,43 @@
     text-align: right;
 }
 
-/* Botones de acción */
+/* Botones */
 .btn-accion {
-    background-color: #4CAF50; /* Verde para sumar */
-    color: white;
+    padding: 5px;
+    margin: 2px;
     border: none;
-    padding: 8px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-sumar {
-    background-color: #b52c00; 
+    background-color: #b52c00;
+}
+
+.btn-sumar:hover {
+    background-color: #8c0005;
 }
 
 .btn-restar {
-    background-color: #b52c00; 
+    background-color: #b52c00;
+}
+
+.btn-restar:hover {
+    background-color: #8c0005;
 }
 
 .btn-eliminar {
-    background-color: #b52c00; 
+    background-color: #b52c00;
 }
 
-.btn-accion:hover {
-    transform: scale(1.05);
+.btn-eliminar:hover {
+    background-color: #8c0005;
 }
 
-.btn-accion:active {
-    transform: scale(0.95);
-}
 
 .detalle-pedido-header {
     display: flex;
@@ -193,3 +201,122 @@
 .btn-agregar-producto i {
     font-size: 18px;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+/* agregar_producto.html */
+
+/* Estilos Generales */
+.agregar-producto-container {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8; 
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Encabezado */
+.agregar-producto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.agregar-producto-title {
+    font-size: 2rem; /* Igual que detalle-pedido-title */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #4d2e1a; /* Igual que detalle-pedido-title */
+}
+
+/* Texto de Información */
+.infoText {
+    color: #4d2e1a; /* Igual que en detalle-pedido */
+}
+
+/* Formulario */
+.agregar-producto-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #201314;
+}
+
+.form-select, .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4d2e1a; /* Igual que en las celdas de la tabla */
+    border-radius: 5px;
+    background-color: #f8f8f8; /* Igual que en detalle-pedido */
+    color: black; /* Igual que en detalle-pedido */
+    font-size: 1rem;
+}
+
+.form-select:focus, .form-input:focus {
+    outline: none;
+    border-color: #c19a9c; /* Igual que en detalle-pedido */
+}
+
+/* Botón de Envío */
+.form-submit-button {
+    background-color: #b52c00; /* Igual que en los botones de detalle-pedido */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-submit-button:hover {
+    background-color: #8c0005; /* Igual que en los botones de detalle-pedido */
+}
+
+/* Botón para volver atrás */
+.agregar-producto-back-button {
+    background-color: #b52c00; /* Igual que los botones de detalle-pedido */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.agregar-producto-back-button:hover {
+    background-color: #8c0005; /* Igual que en los botones de detalle-pedido */
+}
+
+/* Botón para agregar producto */
+.btn-agregar-producto {
+    background-color: #b52c00; /* Igual que en detalle-pedido */
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-agregar-producto:hover {
+    background-color: #8c0005; /* Igual que en detalle-pedido */
+}
+
+.btn-agregar-producto i {
+    font-size: 18px;
+}
+

@@ -13,9 +13,7 @@
 <div class="detalle-pedido-container">
     <div class="detalle-pedido-header">
         <h1 class="detalle-pedido-title">Detalle del Pedido {{ pedido.id }}</h1>
-        <button class="btn-agregar-producto" onclick="agregarProducto()">
-            Agregar Producto
-        </button>
+        <a href="{% url 'pedidos:agregar_producto' pedido.id %}" class="btn-agregar-producto">Agregar Producto</a>
     </div>
     <p class="infoText"><strong>Fecha:</strong> {{ pedido.fecha }}</p>
     <p class="infoText"><strong>Cajero:</strong> {{ pedido.cajero.username }}</p>
@@ -41,21 +39,20 @@
                     <td>${{ producto.subtotal }}</td>
                     <td>
                         <!-- Botón para sumar -->
-                        <button class="btn-accion btn-sumar" onclick="sumarProducto({{ producto.id }})">
+                        <a href="{% url 'pedidos:sumar_producto' producto.id %}" class="btn-accion btn-sumar">
                             <i class="fas fa-plus"></i>
-                        </button>
-                        
+                        </a>
+
                         <!-- Botón para restar -->
-                        <button class="btn-accion btn-restar" onclick="restarProducto({{ producto.id }})">
+                        <a href="{% url 'pedidos:restar_producto' producto.id %}" class="btn-accion btn-restar">
                             <i class="fas fa-minus"></i>
-                        </button>
-                        
+                        </a>
+
                         <!-- Botón para eliminar -->
-                        <button class="btn-accion btn-eliminar" onclick="eliminarProducto({{ producto.id }})">
+                        <a href="{% url 'pedidos:eliminar_producto' producto.id %}" class="btn-accion btn-eliminar">
                             <i class="fas fa-trash"></i>
-                        </button>
-                    </td>
-                    
+                        </a>
+                    </td> 
                 </tr>
                 {% endfor %}
             </tbody>
