@@ -256,3 +256,24 @@
 .cancel-delete-button:hover {
     background-color: #3f2b2c;
 }
+
+/* Mensajes */
+.productos-messages {
+    margin-bottom: 20px;
+  }
+  
+  .alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }

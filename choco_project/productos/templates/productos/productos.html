@@ -10,16 +10,6 @@
 
 {% block content %}
 <div class="prod-container">
-
-    {% if messages %}
-        <div class="productos-messages">
-            {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
-    {% endif %}
     
     <header class="prod-header">
         <h1 class="prod-title">Productos</h1>
