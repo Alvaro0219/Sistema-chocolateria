@@ -13,7 +13,9 @@
 <div class="detalle-pedido-container">
     <div class="detalle-pedido-header">
         <h1 class="detalle-pedido-title">Detalle del Pedido {{ pedido.id }}</h1>
+        {% if not solo_lectura %}
         <a href="{% url 'pedidos:agregar_producto' pedido.id %}" class="btn-agregar-producto">Agregar Producto</a>
+        {% endif %}
     </div>
     <p class="infoText"><strong>Fecha:</strong> {{ pedido.fecha }}</p>
     <p class="infoText"><strong>Cajero:</strong> {{ pedido.cajero.username }}</p>
@@ -37,22 +39,19 @@
                     <td>{{ producto.cantidad }}</td>
                     <td>${{ producto.precio_unitario }}</td>
                     <td>${{ producto.subtotal }}</td>
+                    {% if not solo_lectura %}
                     <td>
-                        <!-- Botón para sumar -->
                         <a href="{% url 'pedidos:sumar_producto' producto.id %}" class="btn-accion btn-sumar">
                             <i class="fas fa-plus"></i>
                         </a>
-
-                        <!-- Botón para restar -->
                         <a href="{% url 'pedidos:restar_producto' producto.id %}" class="btn-accion btn-restar">
                             <i class="fas fa-minus"></i>
                         </a>
-
-                        <!-- Botón para eliminar -->
-                        <a href="{% url 'pedidos:eliminar_producto' producto.id %}" class="btn-accion btn-eliminar" onclick="return confirmarEliminacion('{{ producto.producto.nombre }}');">
+                        <a href="{% url 'pedidos:eliminar_producto' producto.id %}" class="btn-accion btn-eliminar">
                             <i class="fas fa-trash"></i>
                         </a>
-                    </td> 
+                    </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
@@ -63,6 +62,7 @@
     <p class="pedido-total"><strong>Total: ${{ pedido.total }}</strong> </p>
 
     <!-- Botones de Confirmar y Cancelar -->
+    {% if not solo_lectura %}
     <div class="pedido-buttons">
         <form id="confirmarPedidoForm" method="post" action="{% url 'pedidos:generar_qr' pedido.id %}">
             {% csrf_token %}
@@ -73,6 +73,7 @@
             <button type="submit" class="btn-cancelar">Cancelar Pedido</button>
         </form>
     </div>
+    {% endif %}
 </div>
 
 <script>

@@ -34,7 +34,7 @@
                     <td>{{ pedido.cajero.username }}</td>
                     <td>${{ pedido.total }}</td>
                     <td>
-                        <a href="{% url 'pedidos:detalle_pedido' pedido.id %}" class="btn-details">Ver</a>
+                        <a href="{% url 'pedidos:detalle_pedido_solo_lectura' pedido.id %}" class="btn-details">Ver Detalle</a>
                     </td>
                 </tr>
                 {% endfor %}

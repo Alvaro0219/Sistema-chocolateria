@@ -7,7 +7,7 @@ from .utils import reconocer_productos_por_segmento
 from django.db import transaction
 from productos.models import Producto
 import qrcode
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from io import BytesIO
 from reportlab.pdfgen import canvas
@@ -33,7 +33,7 @@ def crear_pedido(request):
         form = PedidoForm()
     return render(request, 'pedidos/crear_pedido.html', {'form': form})
 
-def detalle_pedido(request, pedido_id):
+def detalle_pedido(request, pedido_id, solo_lectura=False):
     """
     Muestra el detalle de un pedido y maneja el procesamiento de productos detectados
     solo la primera vez.
@@ -64,7 +64,7 @@ def detalle_pedido(request, pedido_id):
         except Exception as e:
             messages.error(request, f"Ocurrió un error al procesar la imagen: {str(e)}")
 
-    return render(request, 'pedidos/detalle_pedido.html', {'pedido': pedido})
+    return render(request, 'pedidos/detalle_pedido.html', {'pedido': pedido, 'solo_lectura': solo_lectura})
 
 def sumar_producto(request, producto_id):
     """
@@ -129,16 +129,6 @@ def agregar_producto(request, pedido_id):
 
     productos = Producto.objects.all()
     return render(request, 'pedidos/agregar_producto.html', {'productos': productos, 'pedido_id': pedido_id})
-
-import qrcode
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from io import BytesIO
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
-import os
-
-from django.http import JsonResponse
 
 def generar_qr(request, pedido_id):
     # Crea el directorio si no existe

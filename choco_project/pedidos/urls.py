@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.ultimos_pedidos, name='ultimos_pedidos'),
     path('crear/', views.crear_pedido, name='crear_pedido'),
     path('<int:pedido_id>/', views.detalle_pedido, name='detalle_pedido'),
+    path('<int:pedido_id>/detalle/', views.detalle_pedido, {'solo_lectura': True}, name='detalle_pedido_solo_lectura'),
     path('<int:pedido_id>/agregar/', views.agregar_producto, name='agregar_producto'),
     path('sumar/<int:producto_id>/', views.sumar_producto, name='sumar_producto'),
     path('restar/<int:producto_id>/', views.restar_producto, name='restar_producto'),
