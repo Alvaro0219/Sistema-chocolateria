@@ -79,6 +79,26 @@
 document.getElementById('confirmarPedidoForm').addEventListener('submit', function(event) {
     if (!confirm('¿Estás seguro de que deseas confirmar el pedido?')) {
         event.preventDefault();
+    } else {
+        // Redirigir a la página de últimos pedidos después de confirmar
+        event.preventDefault();
+        fetch("{% url 'pedidos:generar_qr' pedido.id %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            }
+        }).then(response => response.json())
+        .then(data => {
+            if (data.pdf_url) {
+                const link = document.createElement('a');
+                link.href = '/' + data.pdf_url;
+                link.download = 'Factura_Pedido_{{ pedido.id }}.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.location.href = "{% url 'pedidos:ultimos_pedidos' %}";
+            }
+        });
     }
 });
 

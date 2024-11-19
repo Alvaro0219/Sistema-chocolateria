@@ -95,7 +95,14 @@ def eliminar_producto(request, producto_id):
     producto_pedido = get_object_or_404(PedidoProducto, id=producto_id)
     pedido_id = producto_pedido.pedido.id
     producto_pedido.delete()
+    
+    # Verificar si el pedido quedó vacío
     pedido = get_object_or_404(Pedido, id=pedido_id)
+    if not pedido.productos.exists():
+        pedido.delete()
+        messages.success(request, "El pedido ha sido eliminado porque no tiene productos.")
+        return redirect('pedidos:crear_pedido')
+    
     pedido.calcular_total()  # Actualiza el total del pedido
     return redirect('pedidos:detalle_pedido', pedido_id=pedido_id)
 
@@ -130,6 +137,8 @@ from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 import os
+
+from django.http import JsonResponse
 
 def generar_qr(request, pedido_id):
     # Crea el directorio si no existe
@@ -167,7 +176,8 @@ def generar_qr(request, pedido_id):
 
     # Crear el PDF
     buffer = BytesIO()
-    p = canvas.Canvas(buffer, pagesize=letter)
+    pdf_file_path = os.path.join(temp_dir, f"Factura_Pedido_{pedido.id}.pdf")
+    p = canvas.Canvas(pdf_file_path, pagesize=letter)
     p.drawString(100, 750, "Factura - Delicias ChocolaterIA")
     p.drawString(100, 735, f"Pedido ID: {pedido.id}")
     p.drawString(100, 720, f"Fecha: {pedido.fecha.strftime('%Y-%m-%d %H:%M:%S')}")
@@ -190,15 +200,14 @@ def generar_qr(request, pedido_id):
     # Guardar el PDF
     p.showPage()
     p.save()
-    buffer.seek(0)
 
-    # Enviar el PDF como respuesta HTTP
-    response = HttpResponse(buffer, content_type="application/pdf")
-    response["Content-Disposition"] = f"attachment; filename=Factura_Pedido_{pedido.id}.pdf"
-    return response
+    # Devolver la URL del archivo PDF
+    pdf_url = os.path.join("media", "tmp", f"Factura_Pedido_{pedido.id}.pdf")
+    return JsonResponse({'pdf_url': pdf_url})
+
 def cancelar_pedido(request, pedido_id):
     """
-    Cancela el pedido y redirige al listado de pedidos.
+    Cancela el pedido y redirig e al listado de pedidos.
     """
     pedido = get_object_or_404(Pedido, id=pedido_id)
     pedido.delete()
