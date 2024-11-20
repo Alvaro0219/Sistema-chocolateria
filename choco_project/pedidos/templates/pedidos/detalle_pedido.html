@@ -47,7 +47,7 @@
                         <a href="{% url 'pedidos:restar_producto' producto.id %}" class="btn-accion btn-restar">
                             <i class="fas fa-minus"></i>
                         </a>
-                        <a href="{% url 'pedidos:eliminar_producto' producto.id %}" class="btn-accion btn-eliminar">
+                        <a href="{% url 'pedidos:eliminar_producto' producto.id %}" class="btn-accion btn-eliminar" onclick="return confirmarEliminacion('{{ producto.producto.nombre }}');">
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>
